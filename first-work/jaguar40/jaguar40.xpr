@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="63" Path="C:/Users/Fernando Oliveira/OneDrive/Uergs/4o Semestre/Organizacao de computadores/Trabalho 1 05.06.2024/jaguar40/jaguar40.xpr">
+<Project Product="Vivado" Version="7" Minor="63" Path="C:/Users/Fernando Oliveira/OneDrive/Documentos/GitHub/computer-organization/first-work/jaguar40/jaguar40.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="3708f1e51da34e648826e7b464b0b90e"/>
@@ -113,7 +113,6 @@
       <File Path="$PSRCDIR/sources_1/new/data_path.vhd">
         <FileInfo>
           <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -121,7 +120,6 @@
       <File Path="$PSRCDIR/sources_1/new/jaguar40.vhd">
         <FileInfo>
           <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -129,7 +127,6 @@
       <File Path="$PSRCDIR/sources_1/new/memory.vhd">
         <FileInfo>
           <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

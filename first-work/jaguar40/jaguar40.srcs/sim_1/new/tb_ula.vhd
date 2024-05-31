@@ -23,6 +23,7 @@ architecture Behavioral of tb_ula is
     
     -- Outputs
     signal tb_ula_out  : std_logic_vector(31 downto 0);
+    signal tb_beq_out  : std_logic; 
     
 begin
 
