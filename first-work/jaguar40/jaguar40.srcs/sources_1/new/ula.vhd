@@ -18,7 +18,7 @@ entity ula is
             ula_in1     : in std_logic_vector(31 downto 0);     -- Segunda entrada  (32 bits)
             ula_sel     : in std_logic_vector(3 downto 0);      -- Seletor          (3  bits - até 7 opções de operação)
             ula_out     : out std_logic_vector(31 downto 0);    -- Saída            (32 bits)
-            beq_out     : out std_logic                         -- Saída "Zero"     (1 bit)
+            beq_out     : out std_logic                         -- Flag "Zero"      (1 bit)
     );
 end ula;
 
@@ -35,7 +35,7 @@ begin
         case ula_sel is
         
             when "0000" =>   -- BEQ
-                beq <= std_logic_vector(unsigned(ula_in0) - unsigned(ula_in1));  -- Como os valores são vetores lógicos, é necessário convertelos para unsigned e depois reconverte-los em std_logic_vector
+                beq <= std_logic_vector(unsigned(ula_in0) - unsigned(ula_in1)); -- Como os valores são vetores lógicos, é necessário convertelos para unsigned e depois reconverte-los em std_logic_vector
             when "0001" =>   -- ADD
                 result <= std_logic_vector(unsigned(ula_in0) + unsigned(ula_in1));
             when "0010" =>   -- SUB
@@ -44,6 +44,8 @@ begin
                 result <= ula_in0 and ula_in1;
             when "0100" =>   -- OR
                 result <= ula_in0 or ula_in1;    
+            when others => null;
+                result <= x"00000000";
 
         end case;          
     end process;
