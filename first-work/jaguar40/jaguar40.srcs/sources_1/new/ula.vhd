@@ -1,12 +1,12 @@
 ----------------------------------------------------------------------------------
 -- Company: UERGS
--- Engineers: Fernando de Souza Oliveira e Marcos Emerim Gonçalves
+-- Engineers: Fernando de Souza Oliveira e Marcos Emerim Gonï¿½alves
 -- Create Date: 01.05.2024 17:46:43
 -- Module Name: memory - Behavioral
 -- Project Name: jaguar40
 -- Description: Computer Organization first work
 ----------------------------------------------------------------------------------
--- CRIAÇÃO DO COMPONENTE ULA:
+-- CRIAï¿½ï¿½O DO COMPONENTE ULA:
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -16,26 +16,26 @@ entity ula is
     Port ( 
             ula_in0     : in std_logic_vector(31 downto 0);     -- Primeira entrada (32 bits)
             ula_in1     : in std_logic_vector(31 downto 0);     -- Segunda entrada  (32 bits)
-            ula_sel     : in std_logic_vector(3 downto 0);      -- Seletor          (3  bits - até 7 opções de operação)
-            ula_out     : out std_logic_vector(31 downto 0);    -- Saída            (32 bits)
+            ula_op     : in std_logic_vector(3 downto 0);      -- Seletor          (4  bits - atï¿½ 15 opï¿½ï¿½es de operaï¿½ï¿½o)
+            ula_out     : out std_logic_vector(31 downto 0);    -- Saï¿½da            (32 bits)
             beq_out     : out std_logic                         -- Flag "Zero"      (1 bit)
     );
 end ula;
 
 architecture Behavioral of ula is
 
-    signal result   : std_logic_vector(31 downto 0); -- Variável temporária pro resutlado
-    signal beq      : std_logic_vector(31 downto 0); -- Variável temporária pro beq_out
+    signal result   : std_logic_vector(31 downto 0); -- Variï¿½vel temporï¿½ria pro resutlado
+    signal beq      : std_logic_vector(31 downto 0); -- Variï¿½vel temporï¿½ria pro beq_out
         
 begin
 
-    process (ula_in0, ula_in1, ula_sel)
+    process (ula_in0, ula_in1, ula_op)
     begin
 
-        case ula_sel is
+        case ula_op is
         
             when "0000" =>   -- BEQ
-                beq <= std_logic_vector(unsigned(ula_in0) - unsigned(ula_in1)); -- Como os valores são vetores lógicos, é necessário convertelos para unsigned e depois reconverte-los em std_logic_vector
+                beq <= std_logic_vector(unsigned(ula_in0) - unsigned(ula_in1)); -- Como os valores sï¿½o vetores lï¿½gicos, ï¿½ necessï¿½rio convertelos para unsigned e depois reconverte-los em std_logic_vector
             when "0001" =>   -- ADD
                 result <= std_logic_vector(unsigned(ula_in0) + unsigned(ula_in1));
             when "0010" =>   -- SUB

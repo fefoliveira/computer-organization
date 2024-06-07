@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: UERGS
--- Engineers: Fernando de Souza Oliveira e Marcos Emerim Gonçalves
+-- Engineers: Fernando de Souza Oliveira e Marcos Emerim Gonï¿½alves
 -- Create Date: 01.05.2024 17:46:43
 -- Module Name: memory - Behavioral
 -- Project Name: jaguar40
@@ -17,12 +17,12 @@ end tb_mux;
 architecture Behavioral of tb_mux is
     
     -- Inputs
-    signal tb_mux_in0  : std_logic_vector(31 downto 0) := (others => '0');
-    signal tb_mux_in1  : std_logic_vector(31 downto 0) := (others => '0');
+    signal tb_mux_in0  : std_logic_vector(11 downto 0) := (others => '0');
+    signal tb_mux_in1  : std_logic_vector(11 downto 0) := (others => '0');
     signal tb_mux_sel  : std_logic := '0';
     
     -- Outputs
-    signal tb_mux_out  : std_logic_vector(31 downto 0);
+    signal tb_mux_out  : std_logic_vector(11 downto 0);
     
 begin
 
@@ -35,11 +35,11 @@ begin
             mux_out => tb_mux_out            
         );
 
-    -- Processo de estímulo:
+    -- Processo de estï¿½mulo:
     stim_proc: process
     begin
-        tb_mux_in0 <= x"FFFF0000";
-        tb_mux_in1 <= x"0000FFFF";
+        tb_mux_in0 <= x"00F";
+        tb_mux_in1 <= x"F00";
         
         tb_mux_sel <= '0';
         wait for 100 ns;
