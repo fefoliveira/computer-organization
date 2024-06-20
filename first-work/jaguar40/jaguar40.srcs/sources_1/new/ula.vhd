@@ -6,7 +6,7 @@
 -- Project Name: jaguar40
 -- Description: Computer Organization first work
 ----------------------------------------------------------------------------------
--- CRIA��O DO COMPONENTE ULA:
+-- CRIACAO DO COMPONENTE ULA:
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

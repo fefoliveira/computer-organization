@@ -1,8 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Company: UERGS
--- Engineers: Fernando de Souza Oliveira e Marcos Emerim Gon�alves
--- Create Date: 01.05.2024 17:46:43
--- Module Name: memory - Behavioral
+-- Engineers: Fernando de Souza Oliveira e Marcos Emerim Goncalves
+-- Module Name: tb_register_bank - Behavioral
 -- Project Name: jaguar40
 -- Description: Computer Organization first work
 ----------------------------------------------------------------------------------
@@ -10,6 +9,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity tb_register_bank is
 end tb_register_bank;
@@ -45,16 +45,24 @@ begin
     stim_proc: process
     begin
         
+        -- Leitura de todos os registradores (teste do r1_read e r2_read)
+        for i in 0 to 15 loop -- For para atribuir um a um os enderecos de cada registrados, para mostrar seus valores iniciais na simulacao
+            tb_R1_addr <= std_logic_vector(to_unsigned(I, 4));
+            tb_R2_addr <= std_logic_vector(to_unsigned(I+1, 4));
+            wait for 25ns;
+        end loop;
+        
+        -- Escrita no Rd
         tb_Rd_addr <= "0000";
-        tb_R1_addr <= "0001";
-        tb_R2_addr <= "0010";
-        wait for 25 ns;
+        -- tb_Rd_write <= tb_R1_read and tb_R2_read;
+        tb_Rd_write <= x"FEFEFEFE";
+        wait for 50 ns;
 
         tb_reg_write <= '1';
-        tb_Rd_write <= tb_R1_read and tb_R2_read;
-        wait for 25 ns;
+        wait for 5ns;
         
-        wait;
+        tb_reg_write <= '0';
+        wait for 5ns;
         
     end process;
 
