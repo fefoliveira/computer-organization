@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../jaguar40.srcs/sources_1/new/pc.vhd" \
-"../../../../jaguar40.srcs/sim_1/new/tb_pc.vhd" \
-
-# Do not sort compile order
-nosort

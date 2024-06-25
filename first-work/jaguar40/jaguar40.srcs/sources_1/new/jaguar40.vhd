@@ -20,8 +20,8 @@ end jaguar40;
 architecture Behavioral of jaguar40 is
 
     -- Instanceamento do MUX
-    signal address   : std_logic_vector(11 downto 0) := x"000";
-    signal mux_sel   : std_logic := '0';
+    signal instr_addr   : std_logic_vector(11 downto 0) := x"000";
+    signal mux_sel      : std_logic := '0';
 
     -- Instanceamento da ULA
     signal R1_read   : std_logic_vector(31 downto 0) := x"00000000";
@@ -40,13 +40,20 @@ architecture Behavioral of jaguar40 is
     signal pc_next_addr     : std_logic_vector(11 downto 0) := x"000"; 
     signal pc_current_addr  : std_logic_vector(11 downto 0) := x"000";
     signal pc_branch_flag   : std_logic;  -- Correção do nome da flag
+    
+    -- Instanceamento  da unidade de controle
+    signal instr_opcode     : std_logic_vector(4 downto 0);
+    signal jmp_flag         : std_logic;
+    signal beq_flag         : std_logic;
+    signal mem_read         : std_logic;
+    signal mem_write        : std_logic;
 
 begin
 
     U1: entity work.Mux(Behavioral)
         port map(
             mux_in0 =>  pc_next_addr,   -- Entrada do endereco da proxima linha do PC
-            mux_in1 =>  address,        -- Entrada do endereco de desvio da instrucao
+            mux_in1 =>  instr_addr,     -- Entrada do endereco de desvio da instrucao
             mux_sel =>  mux_sel,        -- Selecao de entrada (resultado da AND e da OR)
             mux_out =>  pc_current_addr -- Saida do Mux que vai direto pro PC
         );
@@ -79,5 +86,16 @@ begin
             next_addr    => pc_next_addr,    -- Proximo endereco do PC (sequencia do anterior ou desvio)
             branch_flag  => pc_branch_flag   -- Flag que permite que o proximo endereco do PC seja um desvio
         );
+        
+    U5: entity work.control_unit(Behavioral)
+        port map(
+            opcode      => instr_opcode,
+            jmp         => jmp_flag,
+            beq         => beq_flag,
+            ula_op      => ula_op,
+            mem_read    => mem_read, 
+            mem_write   => mem_write,
+            reg_write   => reg_write
+        );    
 
 end Behavioral;

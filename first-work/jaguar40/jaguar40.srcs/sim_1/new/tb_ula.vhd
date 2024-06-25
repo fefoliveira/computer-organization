@@ -1,7 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: UERGS
--- Engineers: Fernando de Souza Oliveira e Marcos Emerim Gon�alves
--- Create Date: 01.05.2024 17:46:43
+-- Engineers: Fernando de Souza Oliveira e Marcos Emerim Goncalves
 -- Module Name: memory - Behavioral
 -- Project Name: jaguar40
 -- Description: Computer Organization first work

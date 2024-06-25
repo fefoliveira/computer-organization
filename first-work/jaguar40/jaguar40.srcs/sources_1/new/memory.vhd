@@ -5,7 +5,7 @@
 -- Project Name: jaguar40
 -- Description: Computer Organization first work
 ----------------------------------------------------------------------------------
---  CRIAÇÃO DA MEMÓRIA:
+--  CRIACAO DA MEMÓRIA:
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
