@@ -16,8 +16,8 @@ entity ula is
     Port ( 
             ula_in0     : in std_logic_vector(31 downto 0);     -- Primeira entrada (32 bits)
             ula_in1     : in std_logic_vector(31 downto 0);     -- Segunda entrada  (32 bits)
-            ula_op     : in std_logic_vector(3 downto 0);      -- Seletor          (4  bits - at� 15 op��es de opera��o)
-            ula_out     : out std_logic_vector(31 downto 0);    -- Sa�da            (32 bits)
+            ula_op      : in std_logic_vector(3 downto 0);      -- Seletor          (4  bits - ate 15 possiveis operacoes)
+            ula_out     : out std_logic_vector(31 downto 0);    -- Saida            (32 bits)
             beq_out     : out std_logic                         -- Flag "Zero"      (1 bit)
     );
 end ula;

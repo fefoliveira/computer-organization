@@ -22,6 +22,8 @@ architecture Behavioral of jaguar40 is
     -- Instanceamento do MUX
     signal instr_addr   : std_logic_vector(11 downto 0) := x"000";
     signal mux_sel      : std_logic := '0';
+    signal jmp_flag     : std_logic;
+    signal beq_flag     : std_logic;
 
     -- Instanceamento da ULA
     signal R1_read   : std_logic_vector(31 downto 0) := x"00000000";
@@ -39,23 +41,24 @@ architecture Behavioral of jaguar40 is
     -- Instanceamento do PC
     signal pc_next_addr     : std_logic_vector(11 downto 0) := x"000"; 
     signal pc_current_addr  : std_logic_vector(11 downto 0) := x"000";
-    signal pc_branch_flag   : std_logic;  -- Correção do nome da flag
+    --signal pc_branch_flag   : std_logic;  -- Correção do nome da flag
     
     -- Instanceamento  da unidade de controle
     signal instr_opcode     : std_logic_vector(4 downto 0);
-    signal jmp_flag         : std_logic;
-    signal beq_flag         : std_logic;
     signal mem_read         : std_logic;
     signal mem_write        : std_logic;
+    
 
 begin
 
     U1: entity work.Mux(Behavioral)
         port map(
-            mux_in0 =>  pc_next_addr,   -- Entrada do endereco da proxima linha do PC
-            mux_in1 =>  instr_addr,     -- Entrada do endereco de desvio da instrucao
-            mux_sel =>  mux_sel,        -- Selecao de entrada (resultado da AND e da OR)
-            mux_out =>  pc_current_addr -- Saida do Mux que vai direto pro PC
+            mux_in0         => pc_next_addr,    -- Entrada do endereco da proxima linha do PC
+            mux_in1         => instr_addr,      -- Entrada do endereco de desvio da instrucao
+            mux_out         => pc_current_addr, -- Saida do Mux que vai direto pro PC
+            jmp_cu_flag     => jmp_flag,        -- Flag de JMP que vem da unidade de controle
+            beq_cu_flag     => beq_flag,        -- Flag de BEQ que vem da unidade de controle
+            beq_ula_flag    => beq_out          -- Flag de BEQ que vem da ULA
         );
         
     U2: entity work.ULA(Behavioral)
@@ -83,19 +86,20 @@ begin
             clk          => clk,             -- Clock geral do processador
             reset        => reset,           -- Reset
             current_addr => pc_current_addr, -- Endereço atual do PC
-            next_addr    => pc_next_addr,    -- Proximo endereco do PC (sequencia do anterior ou desvio)
-            branch_flag  => pc_branch_flag   -- Flag que permite que o proximo endereco do PC seja um desvio
+            next_addr    => pc_next_addr    -- Proximo endereco do PC (sequencia do anterior ou desvio)
+            --branch_flag  => pc_branch_flag   -- Flag que permite que o proximo endereco do PC seja um desvio
         );
         
     U5: entity work.control_unit(Behavioral)
         port map(
-            opcode      => instr_opcode,
-            jmp         => jmp_flag,
-            beq         => beq_flag,
-            ula_op      => ula_op,
-            mem_read    => mem_read, 
-            mem_write   => mem_write,
-            reg_write   => reg_write
+            opcode      => instr_opcode,    -- Opcode da instrucao que e lida da memoria   
+            jmp         => jmp_flag,        -- Flag caso a instrucao seja JMP        
+            beq         => beq_flag,        -- Flag caso a instrucao seja BEQ
+            ula_op      => ula_op,          -- Codigo da operacao da ula
+            mem_read    => mem_read,        -- Flag de leitura da memoria
+            mem_write   => mem_write,       -- Flag de escrita na memoria
+            reg_write   => reg_write,       -- Flag  de escrita no registrador Rd
+            cu_reset    => reset            -- Flag do HLT que dara um reset na memoria
         );    
 
 end Behavioral;

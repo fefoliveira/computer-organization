@@ -14,6 +14,7 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity control_unit is
     Port (
         opcode      : in  std_logic_vector(4 downto 0); -- Opcode da instrucao (31-27)
+        cu_reset    : in  std_logic; -- Flag que servira de reset pro HLT
         jmp         : out std_logic; -- Flag pro JMP
         beq         : out std_logic; -- Flah pro BEQ
         ula_op      : out std_logic_vector(3 downto 0); -- Operacao da ULA
@@ -37,11 +38,12 @@ begin
         
             when "00000" =>  -- JMP
                 jmp         <= '1';
-                beq         <=  '0';
+                beq         <= '0';
                 ula_op      <= "0000";
                 mem_read    <= '0';
                 mem_write   <= '0';
                 reg_write   <= '0';
+                cu_reset    <= '0';
                 
             when "00001" =>  -- BEQ
                 jmp         <= '0';
@@ -50,6 +52,7 @@ begin
                 mem_read    <= '0';
                 mem_write   <= '0';
                 reg_write   <= '0';
+                cu_reset    <= '0';
                 
             when "00010" =>  -- LOAD
                 jmp         <= '0';
@@ -58,7 +61,8 @@ begin
                 mem_read    <= '1';
                 mem_write   <= '0';
                 reg_write   <= '1' after 10ns;
-            
+                cu_reset    <= '0';
+                
             when "00011" =>  -- STR
                 jmp         <= '0';
                 beq         <= '0';
@@ -66,6 +70,7 @@ begin
                 mem_read    <= '0';
                 mem_write   <= '1';
                 reg_write   <= '0';
+                cu_reset    <= '0';
                 
             when "00100" =>  -- AND
                 jmp         <= '0';
@@ -74,6 +79,7 @@ begin
                 mem_read    <= 'X';
                 mem_write   <= 'X';
                 reg_write   <= '1' after 10ns;
+                cu_reset    <= '0';
                 
             when "00101" =>  -- OR
                 jmp         <= '0';
@@ -82,6 +88,7 @@ begin
                 mem_read    <= 'X';
                 mem_write   <= 'X';
                 reg_write   <= '1' after 10ns;
+                cu_reset    <= '0';
                 
             when "00110" =>  -- ADD
                 jmp         <= '0';
@@ -90,6 +97,7 @@ begin
                 mem_read    <= 'X';
                 mem_write   <= 'X';
                 reg_write   <= '1' after 10ns;
+                cu_reset    <= '0';
                 
             when "00111" =>  -- SUB
                 jmp         <= '0';
@@ -98,6 +106,7 @@ begin
                 mem_read    <= 'X';
                 mem_write   <= 'X';
                 reg_write   <= '1' after 10ns;
+                cu_reset    <= '0';
             
             when others =>
                 jmp         <= 'X';
@@ -106,6 +115,7 @@ begin
                 mem_read    <= 'X';
                 mem_write   <= 'X';
                 reg_write   <= 'X';
+                cu_reset    <= '1';
             
         end case;
     end process;

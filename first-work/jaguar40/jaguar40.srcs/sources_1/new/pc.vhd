@@ -16,8 +16,8 @@ entity pc is
         clk             : in std_logic; -- Sinal de clock
         reset           : in std_logic; -- Sinal de reset
         current_addr    : out std_logic_vector(11 downto 0); -- Linha atual
-        next_addr       : in std_logic_vector(11 downto 0);  -- Proxima linha (que vai esperar um endereco pro desvio)
-        branch_flag     : in std_logic -- Flag para permitir que o proximo endereco seja o do desvio e nao o sequencial ao atual                             
+        next_addr       : in std_logic_vector(11 downto 0)  -- Proxima linha (que vai esperar um endereco pro desvio)
+        --branch_flag     : in std_logic -- Flag para permitir que o proximo endereco seja o do desvio e nao o sequencial ao atual => Serve para simular o MUX em um testbench unico                        
     );
 end pc;
 
@@ -32,11 +32,9 @@ begin
         if reset = '1' then
             current_addr_internal <= (others => '0'); -- Reseta o contador
         elsif rising_edge(clk) then
-            if branch_flag = '1' then
+            --if branch_flag = '1' then
                 current_addr_internal <= unsigned(next_addr);
-            else
-                current_addr_internal <= current_addr_internal + 1;
-            end if;
+            --end if;
         end if;
     end process;
 
