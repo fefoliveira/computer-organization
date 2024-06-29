@@ -20,10 +20,10 @@ end jaguar40;
 architecture Behavioral of jaguar40 is
 
     -- Instanceamento do MUX
-    signal instr_addr   : std_logic_vector(11 downto 0) := x"000";
-    signal mux_sel      : std_logic := '0';
-    signal jmp_flag     : std_logic;
-    signal beq_flag     : std_logic;
+    signal addr_from_instr  : std_logic_vector(11 downto 0) := x"000";
+    signal mux_sel          : std_logic := '0';
+    signal jmp_flag         : std_logic;
+    signal beq_flag         : std_logic;
 
     -- Instanceamento da ULA
     signal R1_read   : std_logic_vector(31 downto 0) := x"00000000";
@@ -54,7 +54,7 @@ begin
     U1: entity work.Mux(Behavioral)
         port map(
             mux_in0         => pc_next_addr,    -- Entrada do endereco da proxima linha do PC
-            mux_in1         => instr_addr,      -- Entrada do endereco de desvio da instrucao
+            mux_in1         => addr_from_instr, -- Entrada do endereco de desvio da instrucao
             mux_out         => pc_current_addr, -- Saida do Mux que vai direto pro PC
             jmp_cu_flag     => jmp_flag,        -- Flag de JMP que vem da unidade de controle
             beq_cu_flag     => beq_flag,        -- Flag de BEQ que vem da unidade de controle
@@ -83,11 +83,10 @@ begin
           
     U4: entity work.pc(Behavioral)
         port map(
-            clk          => clk,             -- Clock geral do processador
-            reset        => reset,           -- Reset
-            current_addr => pc_current_addr, -- Endereço atual do PC
-            next_addr    => pc_next_addr    -- Proximo endereco do PC (sequencia do anterior ou desvio)
-            --branch_flag  => pc_branch_flag   -- Flag que permite que o proximo endereco do PC seja um desvio
+            clk          => clk,                -- Clock geral do processador
+            reset        => reset,              -- Reset
+            current_addr => pc_current_addr,    -- Endereço atual do PC
+            next_addr    => pc_next_addr        -- Proximo endereco do PC (sequencia do anterior ou desvio)
         );
         
     U5: entity work.control_unit(Behavioral)
@@ -101,5 +100,22 @@ begin
             reg_write   => reg_write,       -- Flag  de escrita no registrador Rd
             cu_reset    => reset            -- Flag do HLT que dara um reset na memoria
         );    
+    
+    U6: entity work.memory(Behavioral)
+        port map(
+            clk                     => clk,                 -- Clock geral do processador
+            reset                   => reset,               -- Reset
+            instr_mem_in            => pc_next_addr,        -- Endereco da memoria de instrucoes o qual tem a instrucao que sera executada no momento 
+            instr_mem_out_opcode    => instr_opcode,        -- Parcela da palavra da instrucao na memoria que e o opcode que vai pra unidade de controle       
+            instr_mem_out_Rd        => Rd_addr,             -- Parcela da palavra que representa a saida pro Rd no banco de registradores
+            instr_mem_out_R1        => R1_addr,             -- Parcela da palavra que representa a saida pro R1 no banco de registradores       
+            instr_mem_out_R2        => R2_addr,             -- Parcela da palavra que representa a saida pro R2 no banco de registradores       
+            instr_mem_out_addr      => addr_from_instr,     -- Endereço de 12 bits da palavra da instrucao que vai tanto pro mux (para o desvio) quanto para a memoria de dados (para o endereco de escrita ou leitura do LOAD e STR)
+            data_write_on           => mem_write,           -- Flag de escrita na memoria de dados (vem da unidade de controle)                                  
+            data_read_on            => mem_read,            -- Flag de leitura da memoria de dados (vem da unidade de controle)                               
+            data_mem_addr           => addr_from_instr,     -- Endereço de 12 bits da palavra da instrucao que vai tanto pro mux (para o desvio) quanto para a memoria de dados (para o endereco de escrita ou leitura do LOAD e STR) 
+            data_mem_in             => R1_read,             -- Leitura do valor de R1 que vai pra memoria de dados quando for STR             
+            data_mem_out            => Rd_write             -- Escrita do que vai pro Rd quando for LOAD
+        );        
 
 end Behavioral;

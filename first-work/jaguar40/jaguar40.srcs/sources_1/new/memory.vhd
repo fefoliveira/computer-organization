@@ -19,18 +19,18 @@ entity memory is
         
         -- Memoria de instrucoes:
         instr_mem_in        : in  std_logic_vector(11 downto 0);    -- Entrada do endereco que estara a instrucao da vez
-        instr_mem_out_opcode: out std_logic_vector(4 downto 0);     -- Saida da parcela da palavra que representa o opcode
-        instr_mem_out_Rd    : out std_logic_vector(3 downto 0);     -- Saida da parcela da palavra que representa o Rd
-        instr_mem_out_R1    : out std_logic_vector(3 downto 0);     -- Saida da parcela da palavra que representa o R1
-        instr_mem_out_R2    : out std_logic_vector(3 downto 0);     -- Saida da parcela da palavra que representa o R2
+        instr_mem_out_opcode: out std_logic_vector(4 downto 0);     -- Parcela da palavra que representa a saida do opcode
+        instr_mem_out_Rd    : out std_logic_vector(3 downto 0);     -- Parcela da palavra que representa a saida pro Rd no banco de registradores
+        instr_mem_out_R1    : out std_logic_vector(3 downto 0);     -- Parcela da palavra que representa a saida pro R1 no banco de registradores
+        instr_mem_out_R2    : out std_logic_vector(3 downto 0);     -- Parcela da palavra que representa a saida pro R2 no banco de registradores
         instr_mem_out_addr  : out std_logic_vector(11 downto 0);    -- Saida da parcela da palavra que representa o endereco de desvio na instr_mem ou de destino na data_mem
         
         -- Memoria de dados:
         data_write_on            : in  std_logic;    -- Sinal para escrita na memoria de dados
         data_read_on             : in  std_logic;    -- Sinal para leitura da memoria de dados
         data_mem_addr       : in  std_logic_vector(11 downto 0);    -- Endereço a ser acessado (tanto pra escrita do STR quanto pra leitura do LOAD)
-        data_mem_in         : in  std_logic_vector(31 downto 0);    -- Entrada que sera escrita quando for um STR
-        data_mem_out        : out std_logic_vector(31 downto 0)     -- Saida da data_mem que sera escrita no Rd quando for um LOAD
+        data_mem_in         : in  std_logic_vector(31 downto 0);    -- Entrada que sera escrita quando for um STR (valor do R1)
+        data_mem_out        : out std_logic_vector(31 downto 0)     -- Saida da data_mem que sera escrita no Rd quando for um LOAD (valor que vai pro Rd)
     );
 end memory;
 
@@ -54,15 +54,15 @@ begin
             end loop;
             
             -- Para o testbench:
-            instr_mem(0)    <= "000100000XXXXXXXXXXX000000000000";            -- Descricao da instrucao:  00010                 -> opcode do LOAD
-                                                                            --                          0000                    -> endereco do Rd
-                                                                            --                          XXXXXXXXXXX             -> don't care de 19 bits
-                                                                            --                          000000000000            -> endereco a ser carregado da memoria de dados
+            instr_mem(0)    <= "000100000XXXXXXXXXXX000000000000";  -- Descricao da instrucao:  00010                 -> opcode do LOAD
+                                                                    --                          0000                    -> endereco do Rd
+                                                                    --                          XXXXXXXXXXX             -> don't care de 19 bits
+                                                                    --                          000000000000            -> endereco a ser carregado da memoria de dados
                                                                             
-            instr_mem(15)   <= "000110001XXXXXXXXXXX000000000001";            -- Descricao da instrucao:  00011                 -> opcode do STR
-                                                                            --                          0000                    -> endereco do Rd
-                                                                            --                          XXXXXXXXXXX             -> don't care de 19 bits
-                                                                            --                          000000000001            -> endereco a ser carregado na memoria de dados
+            instr_mem(15)   <= "000110001XXXXXXXXXXX000000000001";  -- Descricao da instrucao:  00011                 -> opcode do STR
+                                                                    --                          0000                    -> endereco do Rd
+                                                                    --                          XXXXXXXXXXX             -> don't care de 19 bits
+                                                                    --                          000000000001            -> endereco a ser carregado na memoria de dados
             
             -- Criacao da memoria de dados:
             for i in 0 to mem_size-1 loop

@@ -1868,3 +1868,219 @@ dismissDialog("Close"); // bq (Close Progress)
 selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_memory.vhd", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
 selectCodeEditor("tb_memory.vhd", 193, 399); // ad (tb_memory.vhd)
 selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 36 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // J (PAResourceOtoP.PAViews_CODE, PlanAheadTabCode)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // J (PAResourceOtoP.PAViews_CODE, PlanAheadTabCode)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, jaguar40(Behavioral) (jaguar40.vhd)]", 1, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, jaguar40(Behavioral) (jaguar40.vhd)]", 1, true, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, memory(Behavioral) (memory.vhd)]", 2, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, memory(Behavioral) (memory.vhd)]", 2, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, jaguar40(Behavioral) (jaguar40.vhd)]", 1); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "jaguar40.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("jaguar40.vhd", 202, 407); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 176, 450); // ad (jaguar40.vhd)
+// Elapsed time: 56 seconds
+selectCodeEditor("jaguar40.vhd", 401, 426); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 413, 445); // ad (jaguar40.vhd)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "jaguar40.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "jaguar40.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("jaguar40.vhd", 83, 75); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 106, 439); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 291, 471); // ad (jaguar40.vhd)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+floatFrame(PAResourceOtoP.PAViews_CODE, "memory.vhd"); // R (PAResourceOtoP.PAViews_CODE, Code (2))
+// PAResourceOtoP.PAViews_CODE: Code: float view
+selectCodeEditor("jaguar40.vhd", 162, 434); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 93, 440); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+// Elapsed time: 23 seconds
+selectCodeEditor("jaguar40.vhd", 390, 416); // ad (jaguar40.vhd)
+// Elapsed time: 19 seconds
+selectCodeEditor("memory.vhd", 56, 97); // ad (memory.vhd)
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+dockFrame(PAResourceOtoP.PAViews_CODE, "memory.vhd"); // R (PAResourceOtoP.PAViews_CODE, Code (2))
+// PAResourceOtoP.PAViews_CODE: Code: dock view
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "jaguar40.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("memory.vhd", 994, 410); // ad (memory.vhd)
+typeControlKey((HResource) null, "memory.vhd", 'c'); // ad (memory.vhd)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "jaguar40.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 875, 485); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 275, 319); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 226, 264); // ad (jaguar40.vhd)
+// Elapsed time: 37 seconds
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+// Elapsed time: 12 seconds
+selectCodeEditor("jaguar40.vhd", 305, 127); // ad (jaguar40.vhd)
+// Elapsed time: 102 seconds
+selectCodeEditor("jaguar40.vhd", 309, 460); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 302, 445); // ad (jaguar40.vhd)
+// Elapsed time: 32 seconds
+selectCodeEditor("jaguar40.vhd", 302, 452); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 195, 115); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 296, 450); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+// Elapsed time: 36 seconds
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 343, 454); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 343, 454, false, false, false, false, true); // ad (jaguar40.vhd) - Double Click
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+// Elapsed time: 29 seconds
+selectCodeEditor("jaguar40.vhd", 188, 212); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 295, 475); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+// Elapsed time: 517 seconds
+selectCodeEditor("jaguar40.vhd", 175, 93); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 326, 330); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 277, 335); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("memory.vhd", 665, 285); // ad (memory.vhd)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "jaguar40.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 617 seconds
+selectCodeEditor("jaguar40.vhd", 262, 327); // ad (jaguar40.vhd)
+// Elapsed time: 18 seconds
+selectCodeEditor("jaguar40.vhd", 249, 268); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 216, 266); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 285, 333); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+// Elapsed time: 13 seconds
+selectCodeEditor("jaguar40.vhd", 253, 352); // ad (jaguar40.vhd)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,111 MB. GUI used memory: 72 MB. Current time: 6/29/24, 12:46:46 PM BRT
+// Elapsed time: 20 seconds
+selectCodeEditor("jaguar40.vhd", 143, 180); // ad (jaguar40.vhd)
+// Elapsed time: 22 seconds
+selectCodeEditor("jaguar40.vhd", 278, 252); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 278, 252, false, false, false, false, true); // ad (jaguar40.vhd) - Double Click
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 333, 383); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 333, 383, false, false, false, false, true); // ad (jaguar40.vhd) - Double Click
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+// Elapsed time: 27 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "jaguar40.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("jaguar40.vhd", 280, 433); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+// Elapsed time: 13 seconds
+selectCodeEditor("jaguar40.vhd", 275, 397); // ad (jaguar40.vhd)
+// Elapsed time: 20 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("memory.vhd", 789, 391); // ad (memory.vhd)
+selectCodeEditor("memory.vhd", 789, 382); // ad (memory.vhd)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 16 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "jaguar40.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("jaguar40.vhd", 473, 334); // ad (jaguar40.vhd)
+// Tcl Message: ERROR: [Common 17-180] Spawn failed: No error 
+// Elapsed Time for: 'L.f': 04h:30m:54s
+selectCodeEditor("jaguar40.vhd", 343, 451); // ad (jaguar40.vhd)
+// Elapsed Time for: 'L.f': 04h:30m:56s
+selectCodeEditor("jaguar40.vhd", 271, 450); // ad (jaguar40.vhd)
+// Elapsed time: 17 seconds
+selectCodeEditor("jaguar40.vhd", 196, 251); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 185, 267); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 185, 267, false, false, false, false, true); // ad (jaguar40.vhd) - Double Click
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+// Elapsed time: 10 seconds
+selectCodeEditor("jaguar40.vhd", 293, 391); // ad (jaguar40.vhd)
+// Elapsed time: 16 seconds
+selectCodeEditor("jaguar40.vhd", 432, 246); // ad (jaguar40.vhd)
+// Elapsed time: 22 seconds
+selectCodeEditor("jaguar40.vhd", 462, 278); // ad (jaguar40.vhd)
+// Elapsed time: 286 seconds
+selectCodeEditor("jaguar40.vhd", 456, 281); // ad (jaguar40.vhd)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 11 seconds
+selectCodeEditor("memory.vhd", 564, 235); // ad (memory.vhd)
+// Elapsed time: 18 seconds
+typeControlKey((HResource) null, "memory.vhd", 'c'); // ad (memory.vhd)
+typeControlKey((HResource) null, "memory.vhd", 'v'); // ad (memory.vhd)
+typeControlKey((HResource) null, "memory.vhd", 'v'); // ad (memory.vhd)
+typeControlKey((HResource) null, "memory.vhd", 'v'); // ad (memory.vhd)
+typeControlKey((HResource) null, "memory.vhd", 'c'); // ad (memory.vhd)
+typeControlKey((HResource) null, "memory.vhd", 'v'); // ad (memory.vhd)
+typeControlKey((HResource) null, "memory.vhd", 'v'); // ad (memory.vhd)
+typeControlKey((HResource) null, "memory.vhd", 'c'); // ad (memory.vhd)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "jaguar40.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 983, 283); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 330, 306); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 329, 294); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 330, 311); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 781, 298); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 426, 331); // ad (jaguar40.vhd)
+// Elapsed time: 57 seconds
+selectCodeEditor("jaguar40.vhd", 400, 352); // ad (jaguar40.vhd)
+// Elapsed time: 20 seconds
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+// Elapsed time: 13 seconds
+selectCodeEditor("jaguar40.vhd", 912, 358); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 902, 353); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 431, 384); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 422, 332); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'c'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 421, 386); // ad (jaguar40.vhd)
+typeControlKey((HResource) null, "jaguar40.vhd", 'v'); // ad (jaguar40.vhd)
+selectCodeEditor("jaguar40.vhd", 420, 394); // ad (jaguar40.vhd)
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+// Elapsed time: 878 seconds
+selectCodeEditor("jaguar40.vhd", 517, 385); // ad (jaguar40.vhd)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "memory.vhd", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:54m:59s
+selectCodeEditor("memory.vhd", 528, 263); // ad (memory.vhd)
+// Elapsed Time for: 'L.f': 04h:55m:01s
+selectCodeEditor("memory.vhd", 534, 267); // ad (memory.vhd)
+// Elapsed time: 33 seconds
+selectCodeEditor("memory.vhd", 541, 187); // ad (memory.vhd)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:55m:37s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "jaguar40.vhd", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed Time for: 'L.f': 04h:55m:39s
+// Elapsed time: 12 seconds
+selectCodeEditor("jaguar40.vhd", 548, 405); // ad (jaguar40.vhd)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: ERROR: [Common 17-180] Spawn failed: No error 
+// Elapsed Time for: 'L.f': 04h:56m:55s
+// Elapsed Time for: 'L.f': 04h:56m:57s
