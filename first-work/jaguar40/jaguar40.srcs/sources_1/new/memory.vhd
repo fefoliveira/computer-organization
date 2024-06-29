@@ -39,7 +39,7 @@ architecture Behavioral of memory is
     constant mem_size : integer := 4096; -- Tamanho da memória (4096 linhas)
     subtype palavra is std_logic_vector(31 downto 0); -- Define que a palavra tem 32 bits
     type memory is array (0 to mem_size-1) of palavra; -- Define que a memória terá 4096 linhas com 32 bits cada (tamanho da palavra)
-    signal instruction_mem : memory;
+    signal instr_mem : memory;
     signal data_mem        : memory;
 
 begin 
@@ -50,19 +50,31 @@ begin
         if(reset = '1') then -- Reseta a memória quando reset = '1'
             -- Criacao da memoria de instrucoes:
             for i in 0 to mem_size-1 loop
-                instruction_mem(i) <= x"00000000"; -- o "x" na frente define que são 8 digitos hexadecimais, que correspondem aos 32 digitos em binário
+                instr_mem(i) <= x"00000000"; -- o "x" na frente define que são 8 digitos hexadecimais, que correspondem aos 32 digitos em binário
             end loop;
+            
+            -- Para o testbench:
+            instr_mem(0)    <= "000100000XXXXXXXXXXX000000000000";            -- Descricao da instrucao:  00010                 -> opcode do LOAD
+                                                                            --                          0000                    -> endereco do Rd
+                                                                            --                          XXXXXXXXXXX             -> don't care de 19 bits
+                                                                            --                          000000000000            -> endereco a ser carregado da memoria de dados
+                                                                            
+            instr_mem(15)   <= "000110001XXXXXXXXXXX000000000001";            -- Descricao da instrucao:  00011                 -> opcode do STR
+                                                                            --                          0000                    -> endereco do Rd
+                                                                            --                          XXXXXXXXXXX             -> don't care de 19 bits
+                                                                            --                          000000000001            -> endereco a ser carregado na memoria de dados
+            
             -- Criacao da memoria de dados:
             for i in 0 to mem_size-1 loop
                 data_mem(i) <= x"00000000";
             end loop;
         else
             -- Leitura da memoria de instrucoes:
-            instr_mem_out_opcode <= instruction_mem(to_integer(unsigned(instr_mem_in)))(31 downto 27);
-            instr_mem_out_Rd <= instruction_mem(to_integer(unsigned(instr_mem_in)))(26 downto 23);
-            instr_mem_out_R1 <= instruction_mem(to_integer(unsigned(instr_mem_in)))(22 downto 19);
-            instr_mem_out_R2 <= instruction_mem(to_integer(unsigned(instr_mem_in)))(18 downto 15);
-            instr_mem_out_addr <= instruction_mem(to_integer(unsigned(instr_mem_in)))(11 downto 0);
+            instr_mem_out_opcode <= instr_mem(to_integer(unsigned(instr_mem_in)))(31 downto 27);
+            instr_mem_out_Rd <= instr_mem(to_integer(unsigned(instr_mem_in)))(26 downto 23);
+            instr_mem_out_R1 <= instr_mem(to_integer(unsigned(instr_mem_in)))(22 downto 19);
+            instr_mem_out_R2 <= instr_mem(to_integer(unsigned(instr_mem_in)))(18 downto 15);
+            instr_mem_out_addr <= instr_mem(to_integer(unsigned(instr_mem_in)))(11 downto 0);
 
             -- Escrita na memoria de dados (STR):
             if data_write_on = '1' then
