@@ -79,7 +79,7 @@ begin
                 instr_mem(30)   <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
                 
                 -- Inicializacao dos valores da memoria de dados
-                data_mem(0)     <= x"000000AA";
+                data_mem(0)     <= x"00000001";
                 data_mem(1)     <= x"00000002";
                 data_mem(2)     <= x"00000003";
                 data_mem(3)     <= x"00000001";

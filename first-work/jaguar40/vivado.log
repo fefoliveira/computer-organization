@@ -3,10 +3,10 @@
 # SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Mon Jul  1 22:55:26 2024
-# Process ID: 8144
+# Start of session at: Mon Jul  1 23:36:41 2024
+# Process ID: 2528
 # Current directory: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13760 C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40\jaguar40.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7328 C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40\jaguar40.xpr
 # Log file: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/vivado.log
 # Journal file: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40\vivado.jou
 # Running On: DESKTOP-N4J6V5N, OS: Windows, CPU Frequency: 1992 MHz, CPU Physical cores: 4, Host memory: 8433 MB
@@ -89,4 +89,4 @@ CRITICAL WARNING: [Runs 36-271] Incremental checkpoint part, xc7z010iclg225-1L, 
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.2/data/ip'.
-open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:16 . Memory (MB): peak = 1445.852 ; gain = 201.629
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1433.004 ; gain = 259.656

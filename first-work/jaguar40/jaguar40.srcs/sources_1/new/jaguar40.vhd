@@ -59,6 +59,8 @@ begin
 
     U3: entity work.register_bank(Behavioral)
         port map( 
+            clk             => clk,
+            reset           => reset,
             Rd_addr         => Rd_addr,         -- Endereco do registrador de destino
             R1_addr         => R1_addr,         -- Endereco do registrador 1
             R2_addr         => R2_addr,         -- Endereco do registrador 2

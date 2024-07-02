@@ -1,4 +1,4 @@
-Running: xsim.dir/tb_jaguar40_behav/xsimk.exe -simmode gui -wdb tb_jaguar40_behav.wdb -simrunnum 0 -socket 64900
+Running: xsim.dir/tb_jaguar40_behav/xsimk.exe -simmode gui -wdb tb_jaguar40_behav.wdb -simrunnum 0 -socket 65151
 Design successfully loaded
-Design Loading Memory Usage: 8880 KB (Peak: 8880 KB)
-Design Loading CPU Usage: 15 ms
+Design Loading Memory Usage: 8896 KB (Peak: 8896 KB)
+Design Loading CPU Usage: 0 ms

@@ -5,11 +5,11 @@ SW Build: 4029153 on Fri Oct 13 20:14:34 MDT 2023
 IP Build: 4028589 on Sat Oct 14 00:45:43 MDT 2023
 IP Build: 4028589 on Sat Oct 14 00:45:43 MDT 2023
 
-Process ID (PID): 8144
+Process ID (PID): 2528
 License: Customer
 Mode: GUI Mode
 
-Current time: 	Mon Jul 01 22:55:57 BRT 2024
+Current time: 	Mon Jul 01 23:36:56 BRT 2024
 Time zone: 	Brasilia Standard Time (America/Sao_Paulo)
 
 OS: Windows 11
@@ -52,13 +52,13 @@ Vivado layouts directory: C:/Users/ferna/AppData/Roaming/Xilinx/Vivado/2023.2/da
 PlanAhead jar file: 	C:/Xilinx/Vivado/2023.2/lib/classes/planAhead.jar
 Vivado log file: 	C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/vivado.log
 Vivado journal file: 	C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/vivado.jou
-Engine tmp dir: 	C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/.Xil/Vivado-8144-DESKTOP-N4J6V5N
+Engine tmp dir: 	C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/.Xil/Vivado-2528-DESKTOP-N4J6V5N
 Non-Default Parameters:	[]
 
 Xilinx & AMD Environment Variables
 --------------------------------------------------------------------------------------------
 RDI_APPROOT: C:/Xilinx/Vivado/2023.2
-RDI_ARGS:  -gui_launcher_event rodinguilauncherevent13760 "C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40\jaguar40.xpr"
+RDI_ARGS:  -gui_launcher_event rodinguilauncherevent7328 "C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40\jaguar40.xpr"
 RDI_ARGS_FUNCTION: RDI_EXEC_DEFAULT
 RDI_BASEROOT: C:/Xilinx/Vivado
 RDI_BINDIR: C:/Xilinx/Vivado/2023.2/bin
@@ -84,7 +84,7 @@ RDI_PYTHON3_VERSION: 3.8.3
 RDI_PYTHONHOME: C:/Xilinx/Vivado/2023.2\tps\win64\python-3.8.3
 RDI_PYTHONPATH: C:/Xilinx/Vivado/2023.2\tps\win64\python-3.8.3;C:/Xilinx/Vivado/2023.2\tps\win64\python-3.8.3\bin;C:/Xilinx/Vivado/2023.2\tps\win64\python-3.8.3\lib;C:/Xilinx/Vivado/2023.2\tps\win64\python-3.8.3\lib\site-packages
 RDI_PYTHON_LD_LIBPATH: C:/Xilinx/Vivado/2023.2\tps\win64\python-3.8.3\lib
-RDI_SESSION_INFO: C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40:DESKTOP-N4J6V5N-01-07-2024_22-55-24,56
+RDI_SESSION_INFO: C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40:DESKTOP-N4J6V5N-01-07-2024_23-36-39,95
 RDI_SHARED_DATA: C:/Xilinx/SharedData/2023.2/data
 RDI_TPS_ROOT: C:/Xilinx/Vivado/2023.2/tps/win64
 RDI_USE_JDK17: True
@@ -99,7 +99,7 @@ _RDI_CWD: C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organizati
 
 GUI allocated memory:	512 MB
 GUI max memory:		4,072 MB
-Engine allocated memory: 743 MB
+Engine allocated memory: 807 MB
 
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
@@ -114,7 +114,7 @@ Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // TclEventType: FLOW_ADDED
 // Tcl Message: open_project C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.xpr 
 // Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40' 
-// HMemoryUtils.trashcanNow. Engine heap size: 777 MB. GUI used memory: 69 MB. Current time: 7/1/24, 10:55:58 PM BRT
+// HMemoryUtils.trashcanNow. Engine heap size: 836 MB. GUI used memory: 68 MB. Current time: 7/1/24, 11:36:57 PM BRT
 // TclEventType: MSGMGR_MOVEMSG
 // TclEventType: FILE_SET_CHANGE
 // TclEventType: FILE_SET_NEW
@@ -139,7 +139,7 @@ Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // Tcl Message: Scanning sources... Finished scanning sources 
 // Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
 // TclEventType: PROJECT_NEW
-// [GUI Memory]: 122 MB (+125200kb) [00:00:26]
-// [Engine Memory]: 1,026 MB (+924555kb) [00:00:26]
-// WARNING: HEventQueue.dispatchEvent() is taking  2684 ms.
+// [GUI Memory]: 123 MB (+126017kb) [00:00:20]
+// [Engine Memory]: 1,035 MB (+934226kb) [00:00:20]
+// WARNING: HEventQueue.dispatchEvent() is taking  2709 ms.
 // Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.2/data/ip'. 
