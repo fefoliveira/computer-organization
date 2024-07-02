@@ -20,7 +20,6 @@ architecture Behavioral of tb_pc is
     signal tb_clk : std_logic := '0';
     signal tb_reset : std_logic := '0';
     signal tb_next_addr : std_logic_vector(11 downto 0);
-    signal tb_branch_flag : std_logic;
 
     -- Output
     signal tb_current_addr : std_logic_vector(11 downto 0);
@@ -47,8 +46,7 @@ begin
         clk => tb_clk,
         reset => tb_reset,
         current_addr => tb_current_addr,
-        next_addr => tb_next_addr,
-        branch_flag => tb_branch_flag
+        next_addr => tb_next_addr
     );
 
     -- Processo de estimulo
@@ -62,25 +60,28 @@ begin
 
         -- Teste sem desvio, apenas incremento de proxima linha
         tb_next_addr <= (others => '0');
-        tb_branch_flag <= '0';
+        wait for 25 ns;
+        
+        -- Icremento do endereco sem desio:
+        tb_next_addr <= std_logic_vector(unsigned(tb_next_addr) + 1);
         wait for 25 ns;
 
         -- Teste com desvio para um novo endereco
         tb_next_addr <= x"010";
-        tb_branch_flag <= '1';
         wait for 25 ns;
 
         -- Teste de incremento pós desvio
-        tb_branch_flag <= '0';
+        tb_next_addr <= std_logic_vector(unsigned(tb_next_addr) + 1);
         wait for 25 ns;
 
         -- Mais um desvio para outro endereco
         tb_next_addr <= x"020";
-        tb_branch_flag <= '1';
         wait for 25 ns;
 
         -- Incremento após o segundo desvio
-        tb_branch_flag <= '0';
+        tb_next_addr <= std_logic_vector(unsigned(tb_next_addr) + 1);
+        wait for 25 ns;
+        tb_next_addr <= std_logic_vector(unsigned(tb_next_addr) + 1);
         wait for 25 ns;
 
         wait;

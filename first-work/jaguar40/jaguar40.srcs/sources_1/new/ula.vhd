@@ -1,8 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Company: UERGS
--- Engineers: Fernando de Souza Oliveira e Marcos Emerim Gon�alves
--- Create Date: 01.05.2024 17:46:43
--- Module Name: memory - Behavioral
+-- Engineers: Fernando de Souza Oliveira e Marcos Emerim Goncalves
+-- Module Name: ula - Behavioral
 -- Project Name: jaguar40
 -- Description: Computer Organization first work
 ----------------------------------------------------------------------------------
@@ -24,8 +23,8 @@ end ula;
 
 architecture Behavioral of ula is
 
-    signal result   : std_logic_vector(31 downto 0); -- Vari�vel tempor�ria pro resutlado
-    signal beq      : std_logic_vector(31 downto 0); -- Vari�vel tempor�ria pro beq_out
+    signal result   : std_logic_vector(31 downto 0); -- Variavel temporaria pro resutlado
+    signal beq      : std_logic_vector(31 downto 0); -- Variavel temporaria pro beq_out
         
 begin
 
@@ -44,8 +43,8 @@ begin
                 result <= ula_in0 and ula_in1;
             when "0100" =>   -- OR
                 result <= ula_in0 or ula_in1;    
-            when others => null;
-                result <= x"00000000";
+            when others =>
+                result <= x"FEFEFEFE";
 
         end case;          
     end process;

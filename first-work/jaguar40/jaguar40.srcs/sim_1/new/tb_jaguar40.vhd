@@ -1,53 +1,56 @@
 ----------------------------------------------------------------------------------
 -- Company: UERGS
--- Engineers: Fernando de Souza Oliveira e Marcos Emerim Gon�alves
--- Create Date: 01.05.2024 17:46:43
--- Module Name: memory - Behavioral
+-- Engineers: Fernando de Souza Oliveira e Marcos Emerim Goncalves
+-- Module Name: tb_jaguar40 - Behavioral
 -- Project Name: jaguar40
 -- Description: Computer Organization first work
 ----------------------------------------------------------------------------------
 -- TESTBENCH DO ARQUIVO DE TOPO:
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity tb_jaguar40 is
 end tb_jaguar40;
 
-architecture Behavioral of tb_jaguar40 is
+architecture behavior of tb_jaguar40 is
 
-    -- Inputs:
-    signal tb_clk       : std_logic := '0';
-    signal tb_reset     : std_logic := '0';
-    constant clk_period : time := 20 ns;
+    -- Inputs
+    signal tb_clk   : std_logic := '0';
+    signal tb_reset : std_logic := '0';
 
-    -- Outputs:
-    -- nenhum, por enquanto
+    -- Clock period definition
+    constant clk_period : time := 10 ns;
+
 begin
 
-    -- Processo de clock:
-    clk_process: process
+    -- Instanciamento do arquio de topo (U1):
+    U1: entity work.jaguar40
+    port map (
+        clk   => tb_clk,
+        reset => tb_reset
+    );
+
+    -- Definicao do processo de clock:
+    clk_process : process
     begin
         tb_clk <= '0';
         wait for clk_period/2;
-        
         tb_clk <= '1';
         wait for clk_period/2;
     end process;
-    
-    U0_test: entity work.jaguar40(Behavioral)
-        port map(
-            clk => tb_clk,
-            reset => tb_reset
-        );
 
-    -- Processo de estimulo:
+    -- Processo de estimulo
     stim_proc: process
     begin
-    
-        wait for 400 ns;
-    
+        tb_reset <= '1';
+        wait for clk_period/2 + 2.5ns;  
+
+        tb_reset <= '0';
+        wait for clk_period*10;
+        
+        wait;
     end process;
- 
-end Behavioral;
+
+end behavior;

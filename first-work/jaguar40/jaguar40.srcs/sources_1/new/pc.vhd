@@ -16,28 +16,40 @@ entity pc is
         clk             : in std_logic; -- Sinal de clock
         reset           : in std_logic; -- Sinal de reset
         current_addr    : out std_logic_vector(11 downto 0); -- Linha atual
-        next_addr       : in std_logic_vector(11 downto 0)  -- Proxima linha (que vai esperar um endereco pro desvio)
-        --branch_flag     : in std_logic -- Flag para permitir que o proximo endereco seja o do desvio e nao o sequencial ao atual => Serve para simular o MUX em um testbench unico                        
+        next_addr       : in std_logic_vector(11 downto 0);  -- Proxima linha (que vai esperar um endereco pro desvio)     
+        enable_flag     : in std_logic;
+        jmp_cu_flag     : in std_logic;                         -- Flag de JMP que vem da unidade de controle
+        beq_cu_flag     : in std_logic;                         -- Flag de BEQ que vem da unidade de controle
+        beq_ula_flag    : in std_logic                         -- Flag de BEQ que vem da ULA    
     );
 end pc;
 
 architecture Behavioral of pc is
     
-    signal current_addr_internal : unsigned(11 downto 0) := (others => '0'); -- Sinal auxiliar para a soma do endereco da proxima linha
-
+    signal current_addr_aux : std_logic_vector(11 downto 0) := x"000"; -- Sinal auxiliar para a soma do endereco da proxima linha
+    signal branch_aux1      : std_logic;
+    signal branch_aux2      : std_logic;
 begin
 
     process(clk, reset)
     begin
         if reset = '1' then
-            current_addr_internal <= (others => '0'); -- Reseta o contador
+            current_addr_aux <= x"000"; -- Reseta o contador
         elsif rising_edge(clk) then
-            --if branch_flag = '1' then
-                current_addr_internal <= unsigned(next_addr);
-            --end if;
+            if(enable_flag = '1') then
+            
+                branch_aux1 <= beq_cu_flag and beq_ula_flag;
+                branch_aux2 <= branch_aux1 or jmp_cu_flag;
+            
+                if(branch_aux2 = '1') then
+                    current_addr_aux <= next_addr;
+                else
+                    current_addr_aux <= std_logic_vector(unsigned(current_addr_aux) + 1);    
+                end if;
+            end if;
         end if;
     end process;
 
-    current_addr <= std_logic_vector(current_addr_internal); -- Converte o valor auxiliar para a saida
+    current_addr <= current_addr_aux; -- Converte o valor auxiliar para a saida
 
 end Behavioral;

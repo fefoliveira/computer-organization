@@ -17,9 +17,11 @@ end tb_mux;
 architecture Behavioral of tb_mux is
     
     -- Inputs
-    signal tb_mux_in0  : std_logic_vector(11 downto 0) := (others => '0');
-    signal tb_mux_in1  : std_logic_vector(11 downto 0) := (others => '0');
-    signal tb_mux_sel  : std_logic := '0';
+    signal tb_mux_in0   : std_logic_vector(11 downto 0) := (others => '0');
+    signal tb_mux_in1   : std_logic_vector(11 downto 0) := (others => '0');
+    signal tb_jmp_cu_flag  : std_logic;
+    signal tb_beq_cu_flag  : std_logic;
+    signal tb_beq_ula_flag : std_logic;
     
     -- Outputs
     signal tb_mux_out  : std_logic_vector(11 downto 0);
@@ -29,10 +31,12 @@ begin
     -- Instanciamento do mux (U1):
     U1_test: entity work.mux(Behavioral)
         port map(
-            mux_in0 => tb_mux_in0,
-            mux_in1 => tb_mux_in1,
-            mux_sel => tb_mux_sel,
-            mux_out => tb_mux_out            
+            mux_in0       => tb_mux_in0,
+            mux_in1       => tb_mux_in1,
+            jmp_cu_flag   => tb_jmp_cu_flag,
+            beq_cu_flag   => tb_beq_cu_flag,
+            beq_ula_flag  => tb_beq_ula_flag,
+            mux_out       => tb_mux_out            
         );
 
     -- Processo de est�mulo:
@@ -41,15 +45,26 @@ begin
         tb_mux_in0 <= x"00F";
         tb_mux_in1 <= x"F00";
         
-        tb_mux_sel <= '0';
+        tb_jmp_cu_flag <= '0';
+        tb_beq_cu_flag <= '0';
+        tb_beq_ula_flag <= '0';
         wait for 100 ns;
         
-        tb_mux_sel <= '1';
+        tb_jmp_cu_flag <= '1';
+        tb_beq_cu_flag <= '0';
+        tb_beq_ula_flag <= '0';
         wait for 100 ns;
         
-        tb_mux_sel <= '0';
+        tb_jmp_cu_flag <= '0';
+        tb_beq_cu_flag <= '1';
+        tb_beq_ula_flag <= '0';
         wait for 100 ns;
-    
+        
+        tb_jmp_cu_flag <= '0';
+        tb_beq_cu_flag <= '1';
+        tb_beq_ula_flag <= '1';
+        wait for 100 ns;
+        
     end process;
     
 end Behavioral;

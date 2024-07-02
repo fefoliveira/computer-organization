@@ -3,36 +3,13 @@
 # SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Sat Jun 29 08:17:21 2024
-# Process ID: 8976
+# Start of session at: Mon Jul  1 22:55:26 2024
+# Process ID: 8144
 # Current directory: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24284 C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40\jaguar40.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13760 C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40\jaguar40.xpr
 # Log file: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/vivado.log
 # Journal file: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40\vivado.jou
 # Running On: DESKTOP-N4J6V5N, OS: Windows, CPU Frequency: 1992 MHz, CPU Physical cores: 4, Host memory: 8433 MB
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.xpr
-update_compile_order -fileset sources_1
-set_property SOURCE_SET sources_1 [get_filesets sim_1]
-close [ open C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.srcs/sim_1/new/tb_memory.vhd w ]
-add_files -fileset sim_1 C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.srcs/sim_1/new/tb_memory.vhd
-update_compile_order -fileset sim_1
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top memory [current_fileset]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset sources_1
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top tb_memory [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset sim_1
-launch_simulation
-launch_simulation
-launch_simulation
-source tb_memory.tcl
-close_sim

@@ -15,25 +15,6 @@ end tb_memory;
 
 architecture Behavioral of tb_memory is
 
-    -- Component Declaration for the Unit Under Test (UUT)
-    component memory
-    Port(
-        clk                 : in  std_logic;
-        reset               : in  std_logic;
-        instr_mem_in        : in  std_logic_vector(11 downto 0);
-        instr_mem_out_opcode: out std_logic_vector(4 downto 0);
-        instr_mem_out_Rd    : out std_logic_vector(3 downto 0);
-        instr_mem_out_R1    : out std_logic_vector(3 downto 0);
-        instr_mem_out_R2    : out std_logic_vector(3 downto 0);
-        instr_mem_out_addr  : out std_logic_vector(11 downto 0);
-        data_write_on       : in  std_logic;
-        data_read_on        : in  std_logic;
-        data_mem_addr       : in  std_logic_vector(11 downto 0);
-        data_mem_in         : in  std_logic_vector(31 downto 0);
-        data_mem_out        : out std_logic_vector(31 downto 0)
-    );
-    end component;
-
     -- Inputs
     signal tb_clk                 : std_logic := '0';
     signal tb_reset               : std_logic := '0';
