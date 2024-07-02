@@ -19,6 +19,7 @@ Compiling architecture behavioral of entity xil_defaultlib.register_bank [regist
 Compiling architecture behavioral of entity xil_defaultlib.pc [pc_default]
 Compiling architecture behavioral of entity xil_defaultlib.control_unit [control_unit_default]
 Compiling architecture behavioral of entity xil_defaultlib.memory [memory_default]
+Compiling architecture behavioral of entity xil_defaultlib.intermed_register [intermed_register_default]
 Compiling architecture behavioral of entity xil_defaultlib.jaguar40 [jaguar40_default]
 Compiling architecture behavior of entity xil_defaultlib.tb_jaguar40
 Built simulation snapshot tb_jaguar40_behav

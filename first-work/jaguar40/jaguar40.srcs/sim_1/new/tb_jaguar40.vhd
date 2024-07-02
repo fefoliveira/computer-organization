@@ -40,17 +40,5 @@ begin
         tb_clk <= '1';
         wait for clk_period/2;
     end process;
-
-    -- Processo de estimulo
-    stim_proc: process
-    begin
-        tb_reset <= '1';
-        wait for clk_period/2 + 2.5ns;  
-
-        tb_reset <= '0';
-        wait for clk_period*10;
-        
-        wait;
-    end process;
-
+    
 end behavior;

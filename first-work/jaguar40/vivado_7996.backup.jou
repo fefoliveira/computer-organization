@@ -3,10 +3,10 @@
 # SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Sun Jun 30 21:48:03 2024
-# Process ID: 1172
+# Start of session at: Tue Jul  2 12:04:56 2024
+# Process ID: 7996
 # Current directory: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5492 C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40\jaguar40.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10324 C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40\jaguar40.xpr
 # Log file: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/vivado.log
 # Journal file: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40\vivado.jou
 # Running On: DESKTOP-N4J6V5N, OS: Windows, CPU Frequency: 1992 MHz, CPU Physical cores: 4, Host memory: 8433 MB
@@ -14,7 +14,3 @@
 start_gui
 open_project C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
-source tb_jaguar40.tcl
-close_sim

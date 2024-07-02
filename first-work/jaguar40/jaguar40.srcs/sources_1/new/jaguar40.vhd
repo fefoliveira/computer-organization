@@ -21,14 +21,17 @@ architecture Behavioral of jaguar40 is
 
     -- Estados da unidade de controle:
     signal instr_opcode     : std_logic_vector(4 downto 0);
-    signal reg_write_data   : std_logic := '0';
-    signal reg_write_ula    : std_logic := '0';
+    signal reg_write_data   : std_logic;
+    signal reg_write_ula    : std_logic;
     signal mem_read         : std_logic;
     signal mem_write        : std_logic;
-    signal ula_op           : std_logic_vector(3 downto 0)  := "0000";
+    signal ula_op           : std_logic_vector(3 downto 0);
     signal pc_enable_flag   : std_logic;
     signal jmp_flag         : std_logic;
     signal beq_flag         : std_logic;
+    signal intermed_reg_on  : std_logic;
+    signal intermed_reg_in  : std_logic_vector(31 downto 0);
+    signal intermed_reg_out : std_logic_vector(31 downto 0);
     
     -- Saidas e entradas da ULA:
     signal R1_read   : std_logic_vector(31 downto 0) := x"00000000";
@@ -42,10 +45,17 @@ architecture Behavioral of jaguar40 is
     signal Rd_write_data    : std_logic_vector(31 downto 0) := x"00000000";
     signal Rd_write_ula     : std_logic_vector(31 downto 0) := x"00000000";
     
-    -- Emtradas e saidas do PC:
+    -- Entradas e saidas do PC:
     signal pc_next_addr     : std_logic_vector(11 downto 0) := x"000"; 
     signal pc_current_addr  : std_logic_vector(11 downto 0) := x"000";
     signal addr_from_instr  : std_logic_vector(11 downto 0) := x"000";
+    
+    -- Entradas do registrador intermediario:
+    signal reg_instr_mem_in_opcode   : std_logic_vector(4 downto 0);     
+    signal reg_instr_mem_in_Rd       : std_logic_vector(3 downto 0);     
+    signal reg_instr_mem_in_R1       : std_logic_vector(3 downto 0);     
+    signal reg_instr_mem_in_R2       : std_logic_vector(3 downto 0);     
+    signal reg_instr_mem_in_addr     : std_logic_vector(11 downto 0);
 
 begin   
     U2: entity work.ULA(Behavioral)
@@ -86,6 +96,8 @@ begin
         
     U5: entity work.control_unit(Behavioral)
         port map(
+            clk             => clk,             -- Clock geral do processador
+            reset           => reset,           -- Reset    
             opcode          => instr_opcode,    -- Opcode da instrucao que e lida da memoria   
             jmp             => jmp_flag,        -- Flag caso a instrucao seja JMP        
             beq             => beq_flag,        -- Flag caso a instrucao seja BEQ
@@ -94,24 +106,41 @@ begin
             mem_write       => mem_write,       -- Flag de escrita na memoria
             reg_write_data  => reg_write_data,  -- Flag para habilitar a escrita do LOAD no Rd
             reg_write_ula   => reg_write_ula,   -- Flag para habilitar a escrita da ULA no Rd
-            pc_enable_flag  => pc_enable_flag   -- Flag que habilita a contagem no PC
+            pc_enable_flag  => pc_enable_flag,  -- Flag que habilita a contagem no PC
+            intermed_reg_on => intermed_reg_on 
         );    
     
     U6: entity work.memory(Behavioral)
         port map(
-            clk                     => clk,                 -- Clock geral do processador
-            reset                   => reset,               -- Reset
-            instr_mem_in            => pc_current_addr,     -- Endereco da memoria de instrucoes o qual tem a instrucao que sera executada no momento 
-            instr_mem_out_opcode    => instr_opcode,        -- Parcela da palavra da instrucao na memoria que e o opcode que vai pra unidade de controle       
-            instr_mem_out_Rd        => Rd_addr,             -- Parcela da palavra que representa a saida pro Rd no banco de registradores
-            instr_mem_out_R1        => R1_addr,             -- Parcela da palavra que representa a saida pro R1 no banco de registradores       
-            instr_mem_out_R2        => R2_addr,             -- Parcela da palavra que representa a saida pro R2 no banco de registradores       
-            instr_mem_out_addr      => addr_from_instr,     -- Endereço de 12 bits da palavra da instrucao que vai tanto pro mux (para o desvio) quanto para a memoria de dados (para o endereco de escrita ou leitura do LOAD e STR)
-            data_write_on           => mem_write,           -- Flag de escrita na memoria de dados (vem da unidade de controle)                                  
-            data_read_on            => mem_read,            -- Flag de leitura da memoria de dados (vem da unidade de controle)                               
-            data_mem_addr           => addr_from_instr,     -- Endereço de 12 bits da palavra da instrucao que vai tanto pro mux (para o desvio) quanto para a memoria de dados (para o endereco de escrita ou leitura do LOAD e STR) 
-            data_mem_in             => R1_read,             -- Leitura do valor de R1 que vai pra memoria de dados quando for STR             
-            data_mem_out            => Rd_write_data        -- Escrita do que vai pro Rd quando for LOAD
-        );        
+            clk                     => clk,                     -- Clock geral do processador
+            reset                   => reset,                   -- Reset
+            instr_mem_in            => pc_current_addr,         -- Endereco da memoria de instrucoes o qual tem a instrucao que sera executada no momento 
+            instr_mem_out_opcode    => reg_instr_mem_in_opcode, -- Parcela da palavra da instrucao na memoria que e o opcode que vai pra unidade de controle       
+            instr_mem_out_Rd        => reg_instr_mem_in_Rd,     -- Parcela da palavra que representa a saida pro Rd no banco de registradores
+            instr_mem_out_R1        => reg_instr_mem_in_R1,     -- Parcela da palavra que representa a saida pro R1 no banco de registradores       
+            instr_mem_out_R2        => reg_instr_mem_in_R2,     -- Parcela da palavra que representa a saida pro R2 no banco de registradores       
+            instr_mem_out_addr      => reg_instr_mem_in_addr,   -- Endereço de 12 bits da palavra da instrucao que vai tanto pro mux (para o desvio) quanto para a memoria de dados (para o endereco de escrita ou leitura do LOAD e STR)
+            data_write_on           => mem_write,               -- Flag de escrita na memoria de dados (vem da unidade de controle)                                  
+            data_read_on            => mem_read,                -- Flag de leitura da memoria de dados (vem da unidade de controle)                               
+            data_mem_addr           => addr_from_instr,         -- Endereço de 12 bits da palavra da instrucao que vai tanto pro mux (para o desvio) quanto para a memoria de dados (para o endereco de escrita ou leitura do LOAD e STR) 
+            data_mem_in             => R1_read,                 -- Leitura do valor de R1 que vai pra memoria de dados quando for STR             
+            data_mem_out            => Rd_write_data            -- Escrita do que vai pro Rd quando for LOAD
+        );   
+        
+    U7: entity work.intermed_register(Behavioral)
+        port map(
+            clk                  => clk,
+            write_on             => intermed_reg_on,
+            instr_mem_in_opcode  => reg_instr_mem_in_opcode, 
+            instr_mem_in_Rd      => reg_instr_mem_in_Rd,
+            instr_mem_in_R1      => reg_instr_mem_in_R1,
+            instr_mem_in_R2      => reg_instr_mem_in_R2,
+            instr_mem_in_addr    => reg_instr_mem_in_addr,
+            instr_mem_out_opcode => instr_opcode,  
+            instr_mem_out_Rd     => Rd_addr,
+            instr_mem_out_R1     => R1_addr,
+            instr_mem_out_R2     => R2_addr,
+            instr_mem_out_addr   => addr_from_instr
+        );             
 
 end Behavioral;
