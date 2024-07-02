@@ -42,7 +42,16 @@ begin
         if rising_edge(clk) then 
             case current_state is
                 when IF_for_all =>
-                    current_state <= ID_for_all;
+                    case opcode is
+                        when "00000" =>
+                            current_state <= ID_for_all;                              
+                        when "00001" =>
+                            current_state <= ID_for_all;
+                        when "00010" =>
+                            current_state <= ID_for_all;
+                        when others => 
+                            current_state <= ID_for_all;
+                    end case;        
                 when ID_for_all =>
                     current_state <= MEMWB_LOAD;
                 when MEMWB_LOAD =>
@@ -56,35 +65,46 @@ begin
         
         case current_state is
             when IF_for_all =>
-                jmp         <= '0';
-                beq         <= '0';
-                ula_op      <= "0000";
-                mem_read    <= '0';
-                mem_write   <= '0';
-                reg_write_data <= '0';
-                reg_write_ula <= '0';
-                pc_enable_flag <= '1';
+                jmp             <= '0';
+                beq             <= '0';
+                ula_op          <= "0000";
+                mem_read        <= '0';
+                mem_write       <= '0';
+                reg_write_data  <= '0';
+                reg_write_ula   <= '0';
+                pc_enable_flag  <= '1';
                 intermed_reg_on <= '1';
             when ID_for_all =>
-                jmp         <= '0';
-                beq         <= '0';
-                ula_op      <= "0000";
-                mem_read    <= '0';
-                mem_write   <= '0';
-                reg_write_data <= '0';
-                reg_write_ula <= '0';
-                pc_enable_flag <= '0';
+                jmp             <= '0';
+                beq             <= '0';
+                ula_op          <= "0000";
+                mem_read        <= '0';
+                mem_write       <= '0';
+                reg_write_data  <= '0';
+                reg_write_ula   <= '0';
+                pc_enable_flag  <= '0';
                 intermed_reg_on <= '0';
             when MEMWB_LOAD =>
-                jmp         <= '0';
-                beq         <= '0';
-                ula_op      <= "0000";
-                mem_read    <= '1';
-                mem_write   <= '0';
-                reg_write_data <= '1';
-                reg_write_ula <= '0';
-                pc_enable_flag <= '0';
+                jmp             <= '0';
+                beq             <= '0';
+                ula_op          <= "0000";
+                reg_write_ula   <= '0';
+                pc_enable_flag  <= '0';
                 intermed_reg_on <= '0';
+                case opcode is
+                    when "00010" =>
+                        mem_read        <= '1';
+                        mem_write       <= '0';
+                        reg_write_data  <= '1';
+                    when "00011" => 
+                        mem_read        <= '0';
+                        mem_write       <= '1';
+                        reg_write_data  <= '0';
+                    when others =>
+                        mem_read        <= '0';
+                        mem_write       <= '0';
+                        reg_write_data  <= '0';    
+                end case;              
          end case;
         
 --        pc_enable_flag <= '1';
