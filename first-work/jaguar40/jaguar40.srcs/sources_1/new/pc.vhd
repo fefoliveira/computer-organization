@@ -31,6 +31,9 @@ architecture Behavioral of pc is
     signal branch_aux2      : std_logic;
 begin
 
+    branch_aux1 <= beq_cu_flag and beq_ula_flag;
+        branch_aux2 <= branch_aux1 or jmp_cu_flag;
+
     process(clk, reset)
     begin
         if reset = '1' then
@@ -38,14 +41,12 @@ begin
         elsif rising_edge(clk) then
             if(enable_flag = '1') then
             
-                branch_aux1 <= beq_cu_flag and beq_ula_flag;
-                branch_aux2 <= branch_aux1 or jmp_cu_flag;
-            
                 if(branch_aux2 = '1') then
                     current_addr_aux <= next_addr;
-                else
+                elsif(beq_cu_flag = '0') then
                     current_addr_aux <= std_logic_vector(unsigned(current_addr_aux) + 1);    
                 end if;
+                
             end if;
         end if;
     end process;

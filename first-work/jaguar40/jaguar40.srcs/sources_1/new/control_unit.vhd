@@ -32,7 +32,7 @@ end control_unit;
 
 architecture Behavioral of control_unit is
 
-    type state is (IF_for_all, ID_for_all, MEMWB_LOAD, EXEC_ULA, WB_ULA);
+    type state is (IF_for_all, ID_for_all, MEMWB_LOAD, EXEC_ULA, WB_ULA, EXEC_JMP);
     signal current_state : state := IF_for_all;
 
 begin
@@ -44,24 +44,15 @@ begin
             case current_state is
             
                 when IF_for_all =>
-                    case opcode is
-                        when "00010" =>
-                            current_state <= ID_for_all;
-                        when "00011" =>
-                            current_state <= ID_for_all;
-                        when "00110" =>
-                            current_state <= ID_for_all;
-                        when others => 
-                            current_state <= ID_for_all;
-                    end case;  
+                    current_state <= ID_for_all;
                           
                 when ID_for_all =>
                     if opcode = "00010" or opcode = "00011" then
                         current_state <= MEMWB_LOAD;
-                    elsif opcode = "00100" or opcode = "00101" or opcode = "00110" or opcode = "00111" then
+                    elsif opcode = "00001" or opcode = "00100" or opcode = "00101" or opcode = "00110" or opcode = "00111" then
                         current_state <= EXEC_ULA;  
-                    else
-                        current_state <= IF_for_all;
+                    elsif opcode = "00000" then
+                        current_state <= EXEC_JMP;
                     end if;
                     
                 when MEMWB_LOAD =>
@@ -73,8 +64,13 @@ begin
                     else 
                         current_state <= IF_for_all;
                     end if;
+                
                 when WB_ULA =>  
                     current_state <= IF_for_all;
+                
+                when EXEC_JMP =>
+                    current_state <= IF_for_all;
+                    
              end case;
         end if;
     end process;
@@ -85,7 +81,6 @@ begin
         case current_state is
         
             when IF_for_all =>
-                jmp             <= '0';
                 beq             <= '0';
                 ula_op          <= "0000";
                 mem_read        <= '0';
@@ -94,7 +89,13 @@ begin
                 reg_write_ula   <= '0';
                 pc_enable_flag  <= '1';
                 intermed_reg_on <= '1';
-                intermed_reg_ula_on <= '0'; 
+                intermed_reg_ula_on <= '0';
+                case opcode is 
+                    when "00000" => 
+                        jmp <= '1';
+                    when others =>
+                        jmp <= '0';
+                end case;
                 
             when ID_for_all =>
                 jmp             <= '0';
@@ -133,32 +134,38 @@ begin
                 
             when EXEC_ULA =>
                 jmp             <= '0';
-                beq             <= '0';
                 reg_write_ula   <= '0';
-                pc_enable_flag  <= '0';
                 intermed_reg_on <= '0';
                 mem_read        <= '0';
                 mem_write       <= '0';
                 reg_write_data  <= '0';
+                pc_enable_flag  <= '0';
                 case opcode is
                     when "00001" => -- BEQ
                         ula_op  <= "0000";
+                        beq     <= '1';
                         intermed_reg_ula_on <= '0';
+                        pc_enable_flag  <= '1';
                     when "00100" => -- AND
                         ula_op  <= "0001";
-                        intermed_reg_ula_on <= '1';        
+                        beq     <= '0';
+                        intermed_reg_ula_on <= '1';
                     when "00101" => -- OR
                         ula_op  <= "0010";
+                        beq     <= '0';
                         intermed_reg_ula_on <= '1';
                     when "00110" => -- ADD
                         ula_op  <= "0011";
-                        intermed_reg_ula_on <= '1';      
+                        beq     <= '0';    
+                        intermed_reg_ula_on <= '1';
                     when "00111" => -- SUB
                         ula_op  <= "0100";
-                        intermed_reg_ula_on <= '1';  
+                        beq     <= '0';
+                        intermed_reg_ula_on <= '1';
                     when others =>
                         ula_op  <= "0000";
-                        intermed_reg_ula_on <= '1';         
+                        beq     <= '0';       
+                        intermed_reg_ula_on <= '1';
                 end case; 
                 
             when WB_ULA =>  
@@ -172,105 +179,20 @@ begin
                 reg_write_data  <= '0';
                 ula_op          <= "0000";
                 intermed_reg_ula_on <= '0';     
-                
+            
+            when EXEC_JMP =>
+                jmp             <= '1';
+                beq             <= '0';
+                reg_write_ula   <= '0';
+                pc_enable_flag  <= '0';
+                intermed_reg_on <= '0';
+                mem_read        <= '0';
+                mem_write       <= '0';
+                reg_write_data  <= '0';
+                ula_op          <= "0000";
+                intermed_reg_ula_on <= '0';       
                         
          end case;
-        
---        pc_enable_flag <= '1';
-        
---        case opcode is
-        
---            when "00000" =>  -- JMP
---                jmp         <= '1';
---                beq         <= '0';
---                ula_op      <= "XXXX";
---                mem_read    <= '0';
---                mem_write   <= '0';
---                reg_write_data <= '0';
---                reg_write_ula <= '0';
---                pc_enable_flag <= '1';
-                                
---            when "00001" =>  -- BEQ
---                jmp         <= '0';
---                beq         <= '1';
---                ula_op      <= "0000";
---                mem_read    <= '0';
---                mem_write   <= '0';
---                reg_write_data <= '0';
---                reg_write_ula <= '0';
---                pc_enable_flag <= '1';
-                
---            when "00010" =>  -- LOAD
---                jmp         <= '0';
---                beq         <= '0';
---                ula_op      <= "XXXX";
---                mem_read    <= '1';
---                mem_write   <= '0';
---                reg_write_data <= '1';
---                reg_write_ula <= '0';
---                pc_enable_flag <= '1';
-                
---            when "00011" =>  -- STR
---                jmp         <= '0';
---                beq         <= '0';
---                ula_op      <= "XXXX";
---                mem_read    <= '0';
---                mem_write   <= '1';
---                reg_write_data <= '0';
---                reg_write_ula <= '0';
---                pc_enable_flag <= '1';
-                
---            when "00100" =>  -- AND
---                jmp         <= '0';
---                beq         <= '0';
---                ula_op      <= "0001";
---                mem_read    <= 'X';
---                mem_write   <= 'X';
---                reg_write_data <= '0';
---                reg_write_ula <= '1';
---                pc_enable_flag <= '1';
-                
---            when "00101" =>  -- OR
---                jmp         <= '0';
---                beq         <= '0';
---                ula_op      <= "0010";
---                mem_read    <= 'X';
---                mem_write   <= 'X';
---                reg_write_data <= '0';
---                reg_write_ula <= '1';
---                pc_enable_flag <= '1';
-                
---            when "00110" =>  -- ADD
---                jmp         <= '0';
---                beq         <= '0';
---                ula_op      <= "0011";
---                mem_read    <= 'X';
---                mem_write   <= 'X';
---                reg_write_data <= '0';
---                reg_write_ula <= '1';
---                pc_enable_flag <= '1';
-                
---            when "00111" =>  -- SUB
---                jmp         <= '0';
---                beq         <= '0';
---                ula_op      <= "0100";
---                mem_read    <= 'X';
---                mem_write   <= 'X';
---                reg_write_data <= '0';
---                reg_write_ula <= '1';
---                pc_enable_flag <= '1';
-            
---            when others =>  -- HLT
---                jmp         <= 'X';
---                beq         <= 'X';
---                ula_op      <= "XXXX";
---                mem_read    <= 'X';
---                mem_write   <= 'X';
---                reg_write_data <= 'X';
---                reg_write_ula <= 'X';
---                pc_enable_flag <= '0';
-            
---        end case;
     end process;
            
 end Behavioral;

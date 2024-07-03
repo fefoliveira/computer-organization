@@ -11,18 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="265.401 ns"></ZoomEndTime>
-      <Cursor1Time time="215.000 ns"></Cursor1Time>
+      <ZoomEndTime time="156.006 ns"></ZoomEndTime>
+      <Cursor1Time time="398.553 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="68"></ValueColumnWidth>
+      <ValueColumnWidth column_width="60"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="16" />
-   <wvobject fp_name="/tb_jaguar40/U1/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
+   <WVObjectSize size="26" />
    <wvobject fp_name="/tb_jaguar40/U1/reset" type="logic">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -94,17 +90,13 @@
          <obj_property name="ElementShortName">Rd_write_ula[31:0]</obj_property>
          <obj_property name="ObjectShortName">Rd_write_ula[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_jaguar40/U1/U3/reg_bank" type="array">
-         <obj_property name="ElementShortName">reg_bank[0:15][31:0]</obj_property>
-         <obj_property name="ObjectShortName">reg_bank[0:15][31:0]</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-      </wvobject>
    </wvobject>
    <wvobject type="divider" fp_name="divider246">
    </wvobject>
    <wvobject fp_name="group160" type="group">
       <obj_property name="label">pc</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/tb_jaguar40/U1/U4/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -151,7 +143,6 @@
    <wvobject fp_name="group161" type="group">
       <obj_property name="label">control_unit</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/tb_jaguar40/U1/U5/opcode" type="array">
          <obj_property name="ElementShortName">opcode[4:0]</obj_property>
          <obj_property name="ObjectShortName">opcode[4:0]</obj_property>
@@ -188,16 +179,13 @@
          <obj_property name="ElementShortName">reg_write_ula</obj_property>
          <obj_property name="ObjectShortName">reg_write_ula</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_jaguar40/U1/U5/current_state" type="other">
-         <obj_property name="ElementShortName">current_state</obj_property>
-         <obj_property name="ObjectShortName">current_state</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject type="divider" fp_name="divider248">
    </wvobject>
    <wvobject fp_name="group162" type="group">
       <obj_property name="label">memory</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/tb_jaguar40/U1/U6/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -205,10 +193,6 @@
       <wvobject fp_name="/tb_jaguar40/U1/U6/reset" type="logic">
          <obj_property name="ElementShortName">reset</obj_property>
          <obj_property name="ObjectShortName">reset</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_jaguar40/U1/U6/instr_mem_in" type="array">
-         <obj_property name="ElementShortName">instr_mem_in[11:0]</obj_property>
-         <obj_property name="ObjectShortName">instr_mem_in[11:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_jaguar40/U1/U6/instr_mem_out_opcode" type="array">
          <obj_property name="ElementShortName">instr_mem_out_opcode[4:0]</obj_property>
@@ -314,10 +298,6 @@
          <obj_property name="ElementShortName">mem_size</obj_property>
          <obj_property name="ObjectShortName">mem_size</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_jaguar40/U1/U6/instr_mem" type="array">
-         <obj_property name="ElementShortName">instr_mem[0:4095][31:0]</obj_property>
-         <obj_property name="ObjectShortName">instr_mem[0:4095][31:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/tb_jaguar40/U1/U6/data_mem" type="array">
          <obj_property name="ElementShortName">data_mem[0:4095][31:0]</obj_property>
          <obj_property name="ObjectShortName">data_mem[0:4095][31:0]</obj_property>
@@ -355,26 +335,6 @@
       <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_in_addr" type="array">
          <obj_property name="ElementShortName">instr_mem_in_addr[11:0]</obj_property>
          <obj_property name="ObjectShortName">instr_mem_in_addr[11:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_out_opcode" type="array">
-         <obj_property name="ElementShortName">instr_mem_out_opcode[4:0]</obj_property>
-         <obj_property name="ObjectShortName">instr_mem_out_opcode[4:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_out_Rd" type="array">
-         <obj_property name="ElementShortName">instr_mem_out_Rd[3:0]</obj_property>
-         <obj_property name="ObjectShortName">instr_mem_out_Rd[3:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_out_R1" type="array">
-         <obj_property name="ElementShortName">instr_mem_out_R1[3:0]</obj_property>
-         <obj_property name="ObjectShortName">instr_mem_out_R1[3:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_out_R2" type="array">
-         <obj_property name="ElementShortName">instr_mem_out_R2[3:0]</obj_property>
-         <obj_property name="ObjectShortName">instr_mem_out_R2[3:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_out_addr" type="array">
-         <obj_property name="ElementShortName">instr_mem_out_addr[11:0]</obj_property>
-         <obj_property name="ObjectShortName">instr_mem_out_addr[11:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_jaguar40/U1/U7/opcode_in_aux" type="array">
          <obj_property name="ElementShortName">opcode_in_aux[4:0]</obj_property>
@@ -422,5 +382,50 @@
          <obj_property name="ElementShortName">data_out[31:0]</obj_property>
          <obj_property name="ObjectShortName">data_out[31:0]</obj_property>
       </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider757">
+   </wvobject>
+   <wvobject fp_name="/tb_jaguar40/U1/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_jaguar40/U1/U6/instr_mem_in" type="array">
+      <obj_property name="ElementShortName">instr_mem_in[11:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_mem_in[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_jaguar40/U1/U5/current_state" type="other">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_out_opcode" type="array">
+      <obj_property name="ElementShortName">instr_mem_out_opcode[4:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_mem_out_opcode[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_out_Rd" type="array">
+      <obj_property name="ElementShortName">instr_mem_out_Rd[3:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_mem_out_Rd[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_out_R1" type="array">
+      <obj_property name="ElementShortName">instr_mem_out_R1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_mem_out_R1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_out_R2" type="array">
+      <obj_property name="ElementShortName">instr_mem_out_R2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_mem_out_R2[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_jaguar40/U1/U7/instr_mem_out_addr" type="array">
+      <obj_property name="ElementShortName">instr_mem_out_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_mem_out_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_jaguar40/U1/U3/reg_bank" type="array">
+      <obj_property name="ElementShortName">reg_bank[0:15][31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_bank[0:15][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_jaguar40/U1/U6/instr_mem" type="array">
+      <obj_property name="ElementShortName">instr_mem[0:4095][31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_mem[0:4095][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>
