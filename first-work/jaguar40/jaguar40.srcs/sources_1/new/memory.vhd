@@ -43,7 +43,7 @@ architecture Behavioral of memory is
     -- Definicao das intrucoes:
     signal instr_mem : memory := (
         "000100000XXXXXXXXXXX000000000000", -- (1)
-        "00011XXXX0000XXXXXXX000000000111", 
+        --"00011XXXX0000XXXXXXX000000000111", 
         "000100001XXXXXXXXXXX000000000001", -- (2)
         "00110001000010000XXXXXXXXXXXXXXX", -- (3)
         "00111001100100001XXXXXXXXXXXXXXX", -- (4)

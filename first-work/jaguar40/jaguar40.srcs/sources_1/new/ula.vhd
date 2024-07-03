@@ -34,15 +34,15 @@ begin
         case ula_op is
         
             when "0000" =>   -- BEQ
-                beq <= std_logic_vector(unsigned(ula_in0) - unsigned(ula_in1)); -- Como os valores s�o vetores l�gicos, � necess�rio convertelos para unsigned e depois reconverte-los em std_logic_vector
-            when "0001" =>   -- ADD
-                result <= std_logic_vector(unsigned(ula_in0) + unsigned(ula_in1));
-            when "0010" =>   -- SUB
-                result <= std_logic_vector(unsigned(ula_in0) - unsigned(ula_in1));
-            when "0011" =>   -- AND
+                beq <= std_logic_vector(unsigned(ula_in0) - unsigned(ula_in1)); -- Como os valores sao vetores logicos, e necessario convertelos para unsigned e depois reconverte-los em std_logic_vector
+            when "0001" =>   -- AND
                 result <= ula_in0 and ula_in1;
-            when "0100" =>   -- OR
-                result <= ula_in0 or ula_in1;    
+            when "0010" =>   -- OR
+                 result <= ula_in0 or ula_in1;  
+            when "0011" =>   -- ADD
+                 result <= std_logic_vector(unsigned(ula_in0) + unsigned(ula_in1));
+            when "0100" =>   -- SUB
+                 result <= std_logic_vector(unsigned(ula_in0) - unsigned(ula_in1));
             when others =>
                 result <= x"FEFEFEFE";
 

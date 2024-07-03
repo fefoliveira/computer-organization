@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="65.751 ns"></ZoomEndTime>
-      <Cursor1Time time="5.000 ns"></Cursor1Time>
+      <ZoomEndTime time="265.401 ns"></ZoomEndTime>
+      <Cursor1Time time="215.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="80"></ValueColumnWidth>
+      <ValueColumnWidth column_width="68"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
+   <WVObjectSize size="16" />
    <wvobject fp_name="/tb_jaguar40/U1/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -86,9 +86,18 @@
          <obj_property name="ElementShortName">R2_read[31:0]</obj_property>
          <obj_property name="ObjectShortName">R2_read[31:0]</obj_property>
       </wvobject>
+      <wvobject fp_name="/tb_jaguar40/U1/U3/Rd_write_data" type="array">
+         <obj_property name="ElementShortName">Rd_write_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">Rd_write_data[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_jaguar40/U1/U3/Rd_write_ula" type="array">
+         <obj_property name="ElementShortName">Rd_write_ula[31:0]</obj_property>
+         <obj_property name="ObjectShortName">Rd_write_ula[31:0]</obj_property>
+      </wvobject>
       <wvobject fp_name="/tb_jaguar40/U1/U3/reg_bank" type="array">
          <obj_property name="ElementShortName">reg_bank[0:15][31:0]</obj_property>
          <obj_property name="ObjectShortName">reg_bank[0:15][31:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="divider" fp_name="divider246">
@@ -314,10 +323,11 @@
          <obj_property name="ObjectShortName">data_mem[0:4095][31:0]</obj_property>
       </wvobject>
    </wvobject>
+   <wvobject type="divider" fp_name="divider231">
+   </wvobject>
    <wvobject fp_name="group4766" type="group">
       <obj_property name="label">intermed_register</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/tb_jaguar40/U1/U7/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -385,6 +395,32 @@
       <wvobject fp_name="/tb_jaguar40/U1/U7/addr_in_aux" type="array">
          <obj_property name="ElementShortName">addr_in_aux[11:0]</obj_property>
          <obj_property name="ObjectShortName">addr_in_aux[11:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider219">
+   </wvobject>
+   <wvobject fp_name="group112" type="group">
+      <obj_property name="label">intermed_register_ula</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_jaguar40/U1/U8/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_jaguar40/U1/U8/write_on" type="logic">
+         <obj_property name="ElementShortName">write_on</obj_property>
+         <obj_property name="ObjectShortName">write_on</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_jaguar40/U1/U8/ula_in" type="array">
+         <obj_property name="ElementShortName">ula_in[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ula_in[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_jaguar40/U1/U8/ula_out" type="array">
+         <obj_property name="ElementShortName">ula_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ula_out[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_jaguar40/U1/U8/data_out" type="array">
+         <obj_property name="ElementShortName">data_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out[31:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

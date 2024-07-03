@@ -32,6 +32,7 @@ architecture Behavioral of jaguar40 is
     signal intermed_reg_on  : std_logic;
     signal intermed_reg_in  : std_logic_vector(31 downto 0);
     signal intermed_reg_out : std_logic_vector(31 downto 0);
+    signal intermed_reg_ula_on  : std_logic;
     
     -- Saidas e entradas da ULA:
     signal R1_read   : std_logic_vector(31 downto 0) := x"00000000";
@@ -56,6 +57,9 @@ architecture Behavioral of jaguar40 is
     signal reg_instr_mem_in_R1       : std_logic_vector(3 downto 0);     
     signal reg_instr_mem_in_R2       : std_logic_vector(3 downto 0);     
     signal reg_instr_mem_in_addr     : std_logic_vector(11 downto 0);
+    
+    -- Saida do registrador intermediario da ULA:
+    signal reg_Rd_write_ula : std_logic_vector(31 downto 0); 
 
 begin   
     U2: entity work.ULA(Behavioral)
@@ -79,7 +83,7 @@ begin
             R1_read         => R1_read,         -- Leitura do registrador 1
             R2_read         => R2_read,         -- Leitura do registrador 2
             Rd_write_data   => Rd_write_data,   -- Escrita da ULA no Rd
-            Rd_write_ula    => Rd_write_ula     -- Escrita do LOAD no Rd
+            Rd_write_ula    => reg_Rd_write_ula     -- Escrita do LOAD no Rd
         );
           
     U4: entity work.pc(Behavioral)
@@ -107,7 +111,8 @@ begin
             reg_write_data  => reg_write_data,  -- Flag para habilitar a escrita do LOAD no Rd
             reg_write_ula   => reg_write_ula,   -- Flag para habilitar a escrita da ULA no Rd
             pc_enable_flag  => pc_enable_flag,  -- Flag que habilita a contagem no PC
-            intermed_reg_on => intermed_reg_on 
+            intermed_reg_on => intermed_reg_on,
+            intermed_reg_ula_on => intermed_reg_ula_on  
         );    
     
     U6: entity work.memory(Behavioral)
@@ -141,6 +146,15 @@ begin
             instr_mem_out_R1     => R1_addr,
             instr_mem_out_R2     => R2_addr,
             instr_mem_out_addr   => addr_from_instr
-        );             
+        );
+    
+    U8: entity work.intermed_register_ula(Behavioral)
+        port map(
+            clk         => clk,
+            write_on    => intermed_reg_ula_on,
+            ula_in      => Rd_write_ula,
+            ula_out     => reg_Rd_write_ula
+        );    
+                     
 
 end Behavioral;

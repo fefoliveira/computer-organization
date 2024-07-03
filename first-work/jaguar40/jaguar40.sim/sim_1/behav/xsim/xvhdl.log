@@ -1,5 +1,5 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.srcs/sources_1/new/memory.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'memory'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.srcs/sources_1/new/ula.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ula'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.srcs/sources_1/new/jaguar40.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'jaguar40'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.srcs/sim_1/new/tb_jaguar40.vhd" into library xil_defaultlib

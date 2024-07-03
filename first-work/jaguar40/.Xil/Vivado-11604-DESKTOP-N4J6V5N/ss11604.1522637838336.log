@@ -1,0 +1,37 @@
+srcscan starts
+srcscan exits with return value 0
+ VHDL std libs ===========
+INFO: VHDL library search path for library "std" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/vhdl/std" (VHDL-1505)
+INFO: VHDL library search path for library "synopsys" is now "C:/Xilinx/Vivado/2023.2/srcscan starts
+srcscan exits with return value 0
+VHDL library search path for library "ieee" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/vhdl/ieee" (VHDL-1505)
+INFO: VHDL library search path for library "unimacro" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/vhdl/unimacro" (VHDL-1505)
+INFO: VHDL library search path for library "unisim" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/vhdl/unisim" (VHDL-1505)
+INFO: VHDL library search path for library "vl" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/vhdl/vl" (VHDL-1505)
+INFO: VHDL library search path for library "xpm" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/vhdl/xpm" (VHDL-1505)
+-- Analyzing VHDL file "C:/Users/ferna/AppData/Local/Temp/VivadoEditorAssist3376942490010012578.tmp" into library xil_defaultlib (VHDL-9003)
+INFO: analyzing entity 'control_unit' (VHDL-1012)
+INFO: analyzing architecture 'Behavioral' of entity 'control_unit' (VHDL-9006)
+-- Analyzing VHDL file "C:/Users/ferna/AppData/Local/Temp/VivadoEditorAssist7348324304541688201.tmp" into library xil_defaultlib (VHDL-9003)
+INFO: analyzing entity 'intermed_register' (VHDL-1012)
+C:/Users/ferna/AppData/Local/Temp/VivadoEditorAssist7348324304541688201.tmp(18): INFO: The direction of input port <clk> is not explicitly declared. This is valid but affects code readability (VHDL-9018)
+INFO: analyzing architecture 'Behavioral' of entity 'intermed_register' (VHDL-9006)
+-- Analyzing VHDL file "C:/Users/ferna/AppData/Local/Temp/VivadoEditorAssist2040921600517313591.tmp" into library xil_defaultlib (VHDL-9003)
+INFO: analyzing entity 'ula' (VHDL-1012)
+INFO: analyzing architecture 'Behavioral' of entity 'ula' (VHDL-9006)
+-- Analyzing VHDL file "C:/Users/ferna/AppData/Local/Temp/VivadoEditorAssist5669537459462591297.tmp" into library xil_defaultlib (VHDL-9003)
+INFO: analyzing entity 'register_bank' (VHDL-1012)
+INFO: analyzing architecture 'Behavioral' of entity 'register_bank' (VHDL-9006)
+-- Analyzing VHDL file "C:/Users/ferna/AppData/Local/Temp/VivadoEditorAssist9021043707284160943.tmp" into library xil_defaultlib (VHDL-9003)
+INFO: analyzing entity 'pc' (VHDL-1012)
+INFO: analyzing architecture 'Behavioral' of entity 'pc' (VHDL-9006)
+-- Analyzing VHDL file "C:/Users/ferna/AppData/Local/Temp/VivadoEditorAssist13152469357803319388.tmp" into library xil_defaultlib (VHDL-9003)
+INFO: analyzing entity 'memory' (VHDL-1012)
+INFO: analyzing architecture 'Behavioral' of entity 'memory' (VHDL-9006)
+-- Analyzing VHDL file "C:/Users/ferna/AppData/Local/Temp/VivadoEditorAssist8300505625981158901.tmp" into library xil_defaultlib (VHDL-9003)
+INFO: analyzing entity 'intermed_register_ula' (VHDL-1012)
+INFO: analyzing architecture 'Behavioral' of entity 'intermed_register_ula' (VHDL-9006)
+-- Analyzing VHDL file "C:/Users/ferna/AppData/Local/Temp/VivadoEditorAssist7771298663865870156.tmp" into library xil_defaultlib (VHDL-9003)
+INFO: analyzing entity 'jaguar40' (VHDL-1012)
+INFO: analyzing architecture 'Behavioral' of entity 'jaguar40' (VHDL-9006)
+srcscan exits with return value 0
