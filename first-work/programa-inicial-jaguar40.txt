@@ -39,10 +39,10 @@ Programa com os registradores e endereços definidos:
 
 Programa com as linhas inteiramente em binário:
 
-1. 
-2.
-3.
-4.
+1.  LOAD  r1       x"001"	(carrega o valor da linha 1 da memoria de dados (1) no r0)
+2.  LOAD  r2       x"002"	(carrega o valor da linha 0 da memoria de dados (2) no r1)
+3.  ADDTW r3 r1 r2 		(soma 2 com 3, depois 5 (o resultado) com 3, e guarda no r3) 2 + 3 + 3 = 8
+4.  ADDS  r4 r1 r2 x"005"	(soma 2 com 3 e guarda no endereço x"005")
 5.
 6.
 7.

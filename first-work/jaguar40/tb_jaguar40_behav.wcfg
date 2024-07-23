@@ -10,13 +10,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="295.530 ns"></ZoomStartTime>
-      <ZoomEndTime time="359.181 ns"></ZoomEndTime>
-      <Cursor1Time time="335.000 ns"></Cursor1Time>
+      <ZoomStartTime time="911.708 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,017.659 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="270"></NameColumnWidth>
-      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+      <NameColumnWidth column_width="251"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="17" />
    <wvobject fp_name="/tb_jaguar40/U1/clk" type="logic">
@@ -50,6 +50,10 @@
       <wvobject fp_name="/tb_jaguar40/U1/U3/R1_addr" type="array">
          <obj_property name="ElementShortName">R1_addr[3:0]</obj_property>
          <obj_property name="ObjectShortName">R1_addr[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_jaguar40/U1/U3/R1_addr_aux" type="array">
+         <obj_property name="ElementShortName">R1_addr_aux[3:0]</obj_property>
+         <obj_property name="ObjectShortName">R1_addr_aux[3:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_jaguar40/U1/U3/R2_addr" type="array">
          <obj_property name="ElementShortName">R2_addr[3:0]</obj_property>
@@ -96,6 +100,7 @@
    <wvobject fp_name="group9526" type="group">
       <obj_property name="label">ula</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/tb_jaguar40/U1/U2/ula_in0" type="array">
          <obj_property name="ElementShortName">ula_in0[31:0]</obj_property>
          <obj_property name="ObjectShortName">ula_in0[31:0]</obj_property>
@@ -412,6 +417,7 @@
       <wvobject fp_name="/tb_jaguar40/U1/U6/data_mem" type="array">
          <obj_property name="ElementShortName">data_mem[0:4095][31:0]</obj_property>
          <obj_property name="ObjectShortName">data_mem[0:4095][31:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
       </wvobject>
       <wvobject fp_name="/tb_jaguar40/U1/U6/data_mem_out_aux" type="array">
          <obj_property name="ElementShortName">data_mem_out_aux[31:0]</obj_property>

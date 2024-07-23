@@ -24,7 +24,8 @@ entity register_bank is
         Rd_write_data   : in  std_logic_vector(31 downto 0); -- Valor a ser escrito no registrador Rd pelo LOAD
         Rd_write_ula    : in  std_logic_vector(31 downto 0); -- Valor a ser escrito no registrador Rd pela ULA
         reg_write_data  : in  std_logic; -- Flag pra escrita do LOAD no Rd
-        reg_write_ula   : in  std_logic  -- Flag pra escrita do ULA no Rd
+        reg_write_ula   : in  std_logic;  -- Flag pra escrita do ULA no Rd
+        r1_rd_changed   : in std_logic
     );
 end register_bank;
 
@@ -33,10 +34,11 @@ architecture Behavioral of register_bank is
     type reg_bank_type is array(0 to 15) of 
         std_logic_vector(31 downto 0);
     signal reg_bank  : reg_bank_type;
-    constant reg_qtd : integer := 16;                
+    constant reg_qtd : integer := 16;
+    signal R1_addr_aux : std_logic_vector(3 downto 0);
                      
 begin
-    process(clk)
+    process(clk, r1_rd_changed)
     begin
         if rising_edge(clk) then
             if(reset = '1') then
@@ -51,11 +53,18 @@ begin
             		reg_bank(to_integer(unsigned(Rd_addr))) <= Rd_write_ula;
         	end if;
             end if;
-        end if;     
-    end process;
+        end if;
+        
+        if r1_rd_changed = '1' then
+            R1_addr_aux <= Rd_addr;
+        else
+            R1_addr_aux <= R1_addr;
+        end if;
     
+        end process;
+
     -- Define qual serao os R1 e R2 que serao lidos pelas entradas da ULA
-    R1_read <= reg_bank(to_integer(unsigned(R1_addr)));
+    R1_read <= reg_bank(to_integer(unsigned(R1_addr_aux)));
     R2_read <= reg_bank(to_integer(unsigned(R2_addr)));
     
 end Behavioral;

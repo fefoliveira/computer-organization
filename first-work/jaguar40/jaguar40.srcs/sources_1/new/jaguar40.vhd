@@ -33,6 +33,7 @@ architecture Behavioral of jaguar40 is
     signal intermed_reg_in  : std_logic_vector(31 downto 0);
     signal intermed_reg_out : std_logic_vector(31 downto 0);
     signal intermed_reg_ula_on  : std_logic;
+    signal r1_rd_changed    : std_logic;
     
     -- Saidas e entradas da ULA:
     signal R1_read    : std_logic_vector(31 downto 0) := x"00000000";
@@ -86,7 +87,8 @@ begin
             R1_read         => R1_read,         -- Leitura do registrador 1
             R2_read         => R2_read,         -- Leitura do registrador 2
             Rd_write_data   => Rd_write_data,   -- Escrita da ULA no Rd
-            Rd_write_ula    => reg_Rd_write_ula     -- Escrita do LOAD no Rd
+            Rd_write_ula    => reg_Rd_write_ula,     -- Escrita do LOAD no Rd
+            r1_rd_changed   => r1_rd_changed
         );
           
     U4: entity work.pc(Behavioral)
@@ -116,7 +118,8 @@ begin
             pc_enable_flag  => pc_enable_flag,  -- Flag que habilita a contagem no PC
             intermed_reg_on => intermed_reg_on,
             intermed_reg_ula_on => intermed_reg_ula_on,  
-            ula_r1_sel      => ula_r1_sel
+            ula_r1_sel      => ula_r1_sel,
+            r1_rd_changed   => r1_rd_changed
         );    
     
     U6: entity work.memory(Behavioral)

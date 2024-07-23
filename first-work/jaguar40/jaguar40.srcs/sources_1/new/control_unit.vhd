@@ -26,7 +26,8 @@ entity control_unit is
         pc_enable_flag  : out std_logic; -- Flag que permite que o PC conte  
         intermed_reg_on : out std_logic; -- Flag que habilita a escrita no registrador intermediario do fetch
         intermed_reg_ula_on : out std_logic;   -- Flag que habilita a escrita no registrador intermediario da ULA
-        ula_r1_sel      : out std_logic -- Flag que seleciona a entrada do registrador R1
+        ula_r1_sel      : out std_logic; -- Flag que seleciona a entrada do registrador R1
+        r1_rd_changed   : out std_logic
     );
 end control_unit;
 
@@ -51,7 +52,7 @@ begin
                 when ID_for_all =>
                     if opcode = "00010" or opcode = "00011" then
                         current_state <= MEMWB_LOAD;
-                    elsif opcode = "00001" or opcode = "00100" or opcode = "00101" or opcode = "00110" or opcode = "00111" or opcode = "01000" then
+                    elsif opcode = "00001" or opcode = "00100" or opcode = "00101" or opcode = "00110" or opcode = "00111" or opcode = "01000" or opcode = "01001" then
                         current_state <= EXEC_ULA;
                     elsif opcode = "00000" then
                         current_state <= EXEC_JMP;
@@ -61,7 +62,7 @@ begin
                     current_state <= IF_for_all;
                     
                 when EXEC_ULA =>
-                    if opcode = "00100" or opcode = "00101" or opcode = "00110" or opcode = "00111" or opcode = "01000" then 
+                    if opcode = "00100" or opcode = "00101" or opcode = "00110" or opcode = "00111" or opcode = "01000" or opcode = "01001" then 
                         current_state <= WB_ULA;
                     else 
                         current_state <= IF_for_all;
@@ -76,6 +77,8 @@ begin
                             loop_counter <= 0;  -- Resetar o contador para futuras repetições
                             current_state <= IF_for_all;  -- Sair do loop
                         end if;
+                    elsif opcode = "01001" then
+                        current_state <= MEMWB_LOAD;
                     else
                         current_state <= IF_for_all;
                     end if;
@@ -103,6 +106,7 @@ begin
                 intermed_reg_on <= '1';
                 intermed_reg_ula_on <= '0';
                 ula_r1_sel      <= '0';
+                r1_rd_changed <= '0';
                 case opcode is 
                     when "00000" => 
                         jmp <= '1';
@@ -122,6 +126,7 @@ begin
                 intermed_reg_on <= '0';
                 intermed_reg_ula_on <= '0';
                 ula_r1_sel      <= '0'; 
+                r1_rd_changed <= '0';
                 
             when MEMWB_LOAD =>
                 jmp             <= '0';
@@ -137,10 +142,17 @@ begin
                         mem_read        <= '1';
                         mem_write       <= '0';
                         reg_write_data  <= '1';
+                        r1_rd_changed   <= '0';
                     when "00011" => 
                         mem_read        <= '0';
                         mem_write       <= '1';
                         reg_write_data  <= '0';
+                        r1_rd_changed   <= '0';
+                    when "01001" =>
+                        mem_read        <= '0';
+                        mem_write       <= '1';
+                        reg_write_data  <= '0';
+                        r1_rd_changed   <= '1';
                     when others =>
                         mem_read        <= '0';
                         mem_write       <= '0';
@@ -155,6 +167,7 @@ begin
                 mem_write       <= '0';
                 reg_write_data  <= '0';
                 pc_enable_flag  <= '0';
+                r1_rd_changed <= '0';
                 case opcode is
                     when "00001" => -- BEQ
                         ula_op  <= "0000";
@@ -181,6 +194,10 @@ begin
                         ula_op  <= "0011";
                         beq     <= '0';    
                         intermed_reg_ula_on <= '1';
+                    when "01001" => -- ADDS
+                        ula_op  <= "0011";
+                        beq     <= '0';    
+                        intermed_reg_ula_on <= '1';
                     when others =>
                         ula_op  <= "0000";
                         beq     <= '0';       
@@ -198,6 +215,7 @@ begin
                 reg_write_data  <= '0';
                 ula_op          <= "0000";
                 intermed_reg_ula_on <= '0';   
+                r1_rd_changed <= '0';
                 if opcode = "01000" then  
                     if loop_counter < 1 then
                         reg_write_ula <= '0';
@@ -223,7 +241,8 @@ begin
                 ula_op          <= "0000";
                 intermed_reg_ula_on <= '0';      
                 ula_r1_sel      <= '0'; 
-                        
+                r1_rd_changed <= '0';                 
+                
          end case;
     end process;
            

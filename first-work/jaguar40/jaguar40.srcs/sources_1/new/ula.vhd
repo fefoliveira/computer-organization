@@ -37,7 +37,7 @@ begin
         if ula_r1_sel = '1' then
             in0_aux <= ula_out_r1;
         else    
-        in0_aux <= ula_in0;
+            in0_aux <= ula_in0;
         end if;
 
         case ula_op is

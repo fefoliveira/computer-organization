@@ -61,3 +61,17 @@ open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-org
 source tb_jaguar40.tcl
 relaunch_sim
 relaunch_sim
+relaunch_sim
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
+source tb_jaguar40.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
