@@ -19,7 +19,7 @@ entity register_bank is
         Rd_addr   : in  std_logic_vector(3 downto 0);  -- Endereco de 4 bits do registrador escolhido para ser o Rd
         R1_addr   : in  std_logic_vector(3 downto 0);  -- Endereco de 4 bits do registrador escolhido para ser o R1
         R2_addr   : in  std_logic_vector(3 downto 0);  -- Endereco de 4 bits do registrador escolhido para ser o R2
-        R1_read   : out std_logic_vector(31 downto 0); -- Leitura do valor de R1 que vai direto pra ULA ou pra memória (caso seja um LOAD)
+        R1_read   : out std_logic_vector(31 downto 0); -- Leitura do valor de R1 que vai direto pra ULA ou pra memï¿½ria (caso seja um LOAD)
         R2_read   : out std_logic_vector(31 downto 0); -- Leitura do valor de R2 que vai direto apenas pra ULA
         Rd_write_data   : in  std_logic_vector(31 downto 0); -- Valor a ser escrito no registrador Rd pelo LOAD
         Rd_write_ula    : in  std_logic_vector(31 downto 0); -- Valor a ser escrito no registrador Rd pela ULA

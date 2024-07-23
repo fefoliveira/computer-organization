@@ -32,7 +32,7 @@ architecture Behavioral of pc is
 begin
 
     branch_aux1 <= beq_cu_flag and beq_ula_flag;
-        branch_aux2 <= branch_aux1 or jmp_cu_flag;
+    branch_aux2 <= branch_aux1 or jmp_cu_flag;
 
     process(clk, reset)
     begin

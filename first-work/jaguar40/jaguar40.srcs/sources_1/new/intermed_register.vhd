@@ -5,7 +5,7 @@
 -- Project Name: jaguar40
 -- Description: Computer Organization first work
 ----------------------------------------------------------------------------------
--- REGISTRADOR INTERMEDIARIO:
+-- REGISTRADOR INTERMEDIARIO PARA O FETCH:
 
 
 library IEEE;

@@ -3,10 +3,10 @@
 # SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Tue Jul  2 14:18:30 2024
-# Process ID: 14032
+# Start of session at: Tue Jul  2 21:04:34 2024
+# Process ID: 16668
 # Current directory: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17160 C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40\jaguar40.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3564 C:\Users\ferna\OneDrive\Documentos\uergs\trabalhos\computer-organization\first-work\jaguar40\jaguar40.xpr
 # Log file: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/vivado.log
 # Journal file: C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40\vivado.jou
 # Running On: DESKTOP-N4J6V5N, OS: Windows, CPU Frequency: 1992 MHz, CPU Physical cores: 4, Host memory: 8433 MB
@@ -15,35 +15,35 @@ start_gui
 open_project C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.xpr
 update_compile_order -fileset sources_1
 launch_simulation
-open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
-source tb_jaguar40.tcl
-close_sim
 launch_simulation
 open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
 source tb_jaguar40.tcl
 relaunch_sim
-relaunch_sim
-close_sim
-launch_simulation
-open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
-source tb_jaguar40.tcl
+save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
+save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
 relaunch_sim
 close_sim
 launch_simulation
 open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
 source tb_jaguar40.tcl
+relaunch_sim
+close_sim
+launch_simulation
+open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
+source tb_jaguar40.tcl
+relaunch_sim
+close_sim
+launch_simulation
+open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
+source tb_jaguar40.tcl
+relaunch_sim
 relaunch_sim
 relaunch_sim
 save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
-close_sim
-launch_simulation
-launch_simulation
-open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
-source tb_jaguar40.tcl
-close [ open C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.srcs/sources_1/new/intermed_register.vhd w ]
-add_files C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/jaguar40.srcs/sources_1/new/intermed_register.vhd
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
+save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
+relaunch_sim
+relaunch_sim
+relaunch_sim
 relaunch_sim
 close_sim
 launch_simulation
@@ -54,6 +54,17 @@ close_sim
 launch_simulation
 open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
 source tb_jaguar40.tcl
+save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
+relaunch_sim
+close_sim
+launch_simulation
+open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
+source tb_jaguar40.tcl
+relaunch_sim
+close_sim
+launch_simulation
+open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
+source tb_jaguar40.tcl
 relaunch_sim
 relaunch_sim
 relaunch_sim
@@ -61,19 +72,27 @@ close_sim
 launch_simulation
 open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
 source tb_jaguar40.tcl
+relaunch_sim
+relaunch_sim
+close_sim
+launch_simulation
+open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
+source tb_jaguar40.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
 relaunch_sim
 relaunch_sim
 save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
-close_sim
-launch_simulation
-launch_simulation
-open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
-source tb_jaguar40.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg
-source tb_jaguar40.tcl
+save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
+save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
+save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
+save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
 relaunch_sim
+save_wave_config {C:/Users/ferna/OneDrive/Documentos/uergs/trabalhos/computer-organization/first-work/jaguar40/tb_jaguar40_behav.wcfg}
 close_sim
-launch_simulation
-launch_simulation
