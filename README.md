@@ -1,2 +1,2 @@
 # computer-organization
- Repository with all the codes made during the learning offered by the discipline of Computer Organization, from the degree of Computer Engineering at Uergs.
+ Repository with the MIPs-based project developed in VHDL, in the Computer Organization discipline, of the Computer Engineering course at Uergs.
